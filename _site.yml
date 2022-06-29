@@ -1,7 +1,7 @@
-name: "my-website"
+name: "estadistica"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "estadistica inferencial"
   left:
     - text: "Home"
       href: index.html

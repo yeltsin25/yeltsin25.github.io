@@ -1,5 +1,5 @@
 ---
-title: "About This Website"
+title: "distribuciones"
 ---
 
 eh aqui mi información

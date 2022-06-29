@@ -1,5 +1,6 @@
 ---
-title: "My Website"
+title: "estadistica inferencial"
 ---
 
-Hello, Website!
+hola estoy en el curso de estadistica!
+##hola esto es mi pagina web con Rstudio.

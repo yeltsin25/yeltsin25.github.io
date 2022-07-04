@@ -3,10 +3,8 @@
 title: "DISTRIBUCIONES DISCRETA"
 ---
 
-- __Nambres:__ Nick
-- __Occupation:__ "Student"
-- __Hobbies:__ Learning software development instead of studying for exams. 
+- __Nambres:__ grupo
+- __Occupation:__ "en la nasa"
 
-aqui viendo las fotos 
 
-![](unsch.png)
+

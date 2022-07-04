@@ -1,10 +1,9 @@
 
 ---
-title: "Home"
+title: "Inferencia Estadística"
 ---
+![](caratula.png)
 
-__estamos probando!__
 
-$$Y = \alpha \cdot \sin(X), \alpha = 0,0.1,...,3$$
 
 

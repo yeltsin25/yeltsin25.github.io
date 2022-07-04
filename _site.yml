@@ -1,13 +1,17 @@
-name: "estadistica"
+name: "Trabajo Final Is-244"
 output_dir: "."
 navbar:
-  title: "estadistica inferencial"
+  title: "ESTADISTICA INFERENCIAL"
   left:
-    - text: "Home"
+    - text: "Introducción"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Distribución de Probabilidad"     
+      href: disProbabilidad.html  
+    - text: "Distribución Discreta"
+      href: disDiscreta.html
+    - text: "Distribución Continua"
+      href: disContinua.html
 output:
   html_document:
-    theme: united
-    highlight: textmate
+    theme: flatly
+    css: estilos.Css

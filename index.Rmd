@@ -1,6 +1,10 @@
+
 ---
-title: "estadistica inferencial"
+title: "Home"
 ---
 
-hola estoy en el curso de estadistica!
-##hola esto es mi pagina web con Rstudio.
+__estamos probando!__
+
+$$Y = \alpha \cdot \sin(X), \alpha = 0,0.1,...,3$$
+
+

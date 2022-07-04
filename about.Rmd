@@ -1,5 +1,0 @@
----
-title: "distribuciones"
----
-
-eh aqui mi información

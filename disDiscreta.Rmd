@@ -1,10 +1,112 @@
 
 ---
 title: "DISTRIBUCIONES DISCRETA"
+output:
+  pdf_document: default
+  word_document: default
 ---
 
-- __Nambres:__ grupo
-- __Occupation:__ "en la nasa"
+# 1. Distribución Binomial
+Es aquella función que representa cuál es la probabilidad de obtener **x** éxitos en **n** pruebas de Bernoulli independientes, cuya probabilidad de éxito es de **p**.
+\pagebreak
+la probabilidad de que se obtengan **k** éxitos está dada por la función de probabilidad **f**
+
+$$f(k) \;=\; P(X=k)  \;=\; {n\choose k} p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n$$
+***Con Esperanza y varianza de***
+$$E(X)= np, \qquad V(X)= np(1-p)$$
+
+#### Función de probabilidad en R.
+
+```{r}
+dbinom #Función de masa de probabilidad Binomial (Función de probabilidad)
+pbinom #Distribución binomial (Función de distribución acumulada)
+qbinom #	Función cuantil binomial
+rbinom	#Generación de números pseudoaleatorios binomiales
+```
+
+## Ejercicio de ejemplo.
+***la probabilidad de que el éxito ocurra menos de 3 veces si el número de ensayos es 10 y la probabilidad de éxito por ensayo es 0.3 es***
+```{r}
+pbinom(3, size = 10, prob = 0.3)
+```
+
+# 2. Distribución hipergeométrica
+Recuérdese que si se selecciona una muestra aleatoria de **n** consumidores de una población
+de **N** consumidores, el número **x** de usuarios que favorecen un producto específico tendría
+una distribución binomial cuando el tamaño muestra n es pequeño respecto al número de **N**
+de consumidores en la población, el número **x** a favor del producto tiene una distribución
+de probabilidad hipergeométrica, *cuya fórmula es:*
+\pagebreak
+La correspondiente distribución de X se conoce con el nombre de distribución hipergeométrica con parámetros **n**, **M** y **N**.
+$$ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad n\leq N $$
+- __n:__ Número de elementos en el muestra.
+- __M:__ Número de elementos que tienen una característica especifica, por ejemplo el número de personas a favor un producto particular
+- __N:__ Número de elementos en la población.
+- __K:__ La probabilidad de elegir de manera exacta k éxitos
+
+### R: Distribución Hipergeométrica.
+```{r eval=FALSE}
+dhyper(x, m, n, k, log = F) #Devuelve resultados de la función de densidad.
+phyper(q, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de la función de distribución acumulada.
+qhyper(p, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de los cuantiles de la Hipergeométrica.
+rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleatorios#
+```
+**donde:**
+***Los argumentos que podemos pasar a las funciones expuestas en la anterior tabla, son:***
+
+- **x**, **q**: Vector de cuantiles. Corresponde al número de particulares en la muestra.
+
+- **m:** Selección aleatoria particular
+
+- **n:** El número total de la población menos la selección aleatoria particular. **n = N - m**
+
+- **n:** El número de la selección a evaluar.
+
+- **prob:** Probabilidad.
+
+- **nn:** Número de observaciones.
+
+- **log**, **log.p:** Parámetro booleano, si es **TRUE**, las probabilidades p son devueltas como **log (p)**.
+
+- **lower.tail**: Parámetro booleano, si es TRUE (por defecto), las probabilidades son **P[X ≤ x]**, de lo contrario,
+**P [X > x]**
+
+## Ejercicio de Ejemplo
+
+**De un grupo de 20 ingenieros con doctorado, se eligen 10 aleatoriamente con el fin de contratarlos.
+
+¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los 5 mejores del grupo de 20?**
+
+#### **Solución**
+
+- **N = 20**. Número total de ingenieros.
+- **n = 10.*** Muestra aleatoria de la población total de ingenieros **(20 ingenieros).**
+- **r = 5.** Conjunto de 5 ingenieros estén los 5 mejores.
+
+```{r}
+dhyper(5,10,20-10,5)
+```
+
+# 3.Distribuci´on de Poisson.
+se usa para modelar el número de eventos que ocurren en un proceso de Poisson. Sea **X ∼ P(λ)X∼P(λ)**, esto es, una variable aleatoria con distribución de Poisson donde el número medio de eventos que ocurren en un determinado intervalo es **λ**.
+ 
+***En relación a esta distribución, R tiene 4 funciones:***
+
+- **rpois:** genera valores aleatorios acorde a los parámetros indicados.
+
+- **dpois:** calcula la probabilidad puntual para un valor específico.
+
+- **ppois:** proporciona la probabilidad acumulada para un cuantil específico.
+
+- **qpois:** proporciona el cuantil para una probabilidad específica
 
 
+## Ejercicio de Ejemplo
+**El número medio de enfermos recibidos cada 10 minutos en un centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo que dicho número de enfermos sigue una distribución de Poisson.**
+ ***Calcular la probabilidad de que entre las 12 horas y las 12 horas y 10 minutos haya: Exactamente 2 enfermos***
+```{r}
+dpois(2, 1.8)
+```
+ 
+ 
 

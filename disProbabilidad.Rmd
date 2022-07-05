@@ -1,7 +1,48 @@
 ---
 title: "Distribución de probabilidad"
+output:
+  pdf_document: default
+  word_document: default
 ---
 
-Sometimes I like to do projects and then post them on the internet for the whole world to benefit!
-here's some examples. 
+## ¿Qué es una distribución de probabilidad?
+\pagebreak
+resultados posibles de un experimento y la probabilidad de cada
+resultado.
+\pagebreak
+Supongamos que se quiere saber el numero de caras que se
+obtienen al lanzar cuatro veces una moneda al aire?
+
+Es obvio que, el hecho de que la modena caiga de costado
+se descarta.
+
+Los posibles resultados son: cero caras, una cara, dos
+caras, tres caras y cuatro caras.
+
+## 1. Variable aleatoria. 
+\pagebreak
+Cantidad que es
+resultado de un experimento y debido al azar, puede tomar
+valores diferentes.
+
+Variable aleatoria discreta:- Toma valores
+claramente separados, generalmente se produce por
+conteo.
+
+## 2. Media de una Distribución de
+Probabilidades. 
+\pagebreak
+promedio a largo plazo de la variable aleatoria,
+también es conocido como valor esperado. Esta media es
+un promedio ponderado, en el que los
+valores posibles se ponderan mediante sus probabilidades
+correspondientes de ocurrencia.
+
+## 3. Varianza.
+\pagebreak
+Mide el grado de dispersión de la distribución de probabilidades.
+
+```{r}
+plot(dbinom(0:10,10,0.6),type="h",xlab="k",ylab="P(X=k)",main="Función de Probabilidad B(10,0.6)")
+```
 

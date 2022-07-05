@@ -1,8 +1,27 @@
 
----
-title: "Inferencia Estadística"
----
 ![](caratula.png)
+
+
+
+\pagebreak
+ # Inferencia Estadística
+
+Una distribución de probabilidad
+indica toda la gama de valores que
+pueden representarse como resultado de un experimento. Una
+distribución de probabilidad es similar al
+distribución de frecuencias relativas .Si embargo, en vez
+de describir el pasado, describe la probabilidad que un evento se
+realice en el futuro, constituye una herramienta fundamental para
+la prospectiva, puesto que se puede diseñar un escenario
+de acontecimientos futuros considerando las tendencias actuales
+de diversos fenómenos naturales.
+
+\pagebreak
+Las decisiones estadísticas basadas en la estadística inferencial son fundamentales
+en la investigación que son evaluadas en
+términos de distribución de
+probabilidades.
 
 
 

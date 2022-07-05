@@ -275,10 +275,143 @@ $(document).ready(function () {
 </div>
 
 
+<div id="distribución-binomial" class="section level1">
+<h1>1. Distribución Binomial</h1>
+<p>Es aquella función que representa cuál es la probabilidad de obtener
+<strong>x</strong> éxitos en <strong>n</strong> pruebas de Bernoulli
+independientes, cuya probabilidad de éxito es de <strong>p</strong>. la
+probabilidad de que se obtengan <strong>k</strong> éxitos está dada por
+la función de probabilidad <strong>f</strong></p>
+<p><span class="math display">\[f(k) \;=\; P(X=k)  \;=\; {n\choose k}
+p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n\]</span> <strong><em>Con
+Esperanza y varianza de</em></strong> <span class="math display">\[E(X)=
+np, \qquad V(X)= np(1-p)\]</span></p>
+<div id="función-de-probabilidad-en-r." class="section level4">
+<h4>Función de probabilidad en R.</h4>
+<pre class="r"><code>dbinom #Función de masa de probabilidad Binomial (Función de probabilidad)</code></pre>
+<pre><code>## function (x, size, prob, log = FALSE) 
+## .Call(C_dbinom, x, size, prob, log)
+## &lt;bytecode: 0x000002772e41e9b0&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>pbinom #Distribución binomial (Función de distribución acumulada)</code></pre>
+<pre><code>## function (q, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_pbinom, q, size, prob, lower.tail, log.p)
+## &lt;bytecode: 0x00000277270a76a8&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>qbinom #    Función cuantil binomial</code></pre>
+<pre><code>## function (p, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_qbinom, p, size, prob, lower.tail, log.p)
+## &lt;bytecode: 0x000002772e2dc260&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>rbinom  #Generación de números pseudoaleatorios binomiales</code></pre>
+<pre><code>## function (n, size, prob) 
+## .Call(C_rbinom, n, size, prob)
+## &lt;bytecode: 0x000002772e33a4e8&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+</div>
+<div id="ejercicio-de-ejemplo." class="section level2">
+<h2>Ejercicio de ejemplo.</h2>
+<p><strong><em>la probabilidad de que el éxito ocurra menos de 3 veces
+si el número de ensayos es 10 y la probabilidad de éxito por ensayo es
+0.3 es</em></strong></p>
+<pre class="r"><code>pbinom(3, size = 10, prob = 0.3)</code></pre>
+<pre><code>## [1] 0.6496107</code></pre>
+</div>
+</div>
+<div id="distribución-hipergeométrica" class="section level1">
+<h1>2. Distribución hipergeométrica</h1>
+<p>Recuérdese que si se selecciona una muestra aleatoria de
+<strong>n</strong> consumidores de una población de <strong>N</strong>
+consumidores, el número <strong>x</strong> de usuarios que favorecen un
+producto específico tendría una distribución binomial cuando el tamaño
+muestra n es pequeño respecto al número de <strong>N</strong> de
+consumidores en la población, el número <strong>x</strong> a favor del
+producto tiene una distribución de probabilidad hipergeométrica,
+<em>cuya fórmula es:</em> La correspondiente distribución de X se conoce
+con el nombre de distribución hipergeométrica con parámetros
+<strong>n</strong>, <strong>M</strong> y <strong>N</strong>. <span
+class="math display">\[ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose
+k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2,
+\ldots, n \quad \text{y}\quad n\leq N \]</span> - <strong>n:</strong>
+Número de elementos en el muestra. - <strong>M:</strong> Número de
+elementos que tienen una característica especifica, por ejemplo el
+número de personas a favor un producto particular - <strong>N:</strong>
+Número de elementos en la población. - <strong>K:</strong> La
+probabilidad de elegir de manera exacta k éxitos</p>
+<div id="r-distribución-hipergeométrica." class="section level3">
+<h3>R: Distribución Hipergeométrica.</h3>
+<pre class="r"><code>dhyper(x, m, n, k, log = F) #Devuelve resultados de la función de densidad.
+phyper(q, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de la función de distribución acumulada.
+qhyper(p, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de los cuantiles de la Hipergeométrica.
+rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleatorios#</code></pre>
+<p><strong>donde:</strong> <strong><em>Los argumentos que podemos pasar
+a las funciones expuestas en la anterior tabla, son:</em></strong></p>
 <ul>
-<li><strong>Nambres:</strong> grupo</li>
-<li><strong>Occupation:</strong> “en la nasa”</li>
+<li><p><strong>x</strong>, <strong>q</strong>: Vector de cuantiles.
+Corresponde al número de particulares en la muestra.</p></li>
+<li><p><strong>m:</strong> Selección aleatoria particular</p></li>
+<li><p><strong>n:</strong> El número total de la población menos la
+selección aleatoria particular. <strong>n = N - m</strong></p></li>
+<li><p><strong>n:</strong> El número de la selección a evaluar.</p></li>
+<li><p><strong>prob:</strong> Probabilidad.</p></li>
+<li><p><strong>nn:</strong> Número de observaciones.</p></li>
+<li><p><strong>log</strong>, <strong>log.p:</strong> Parámetro booleano,
+si es <strong>TRUE</strong>, las probabilidades p son devueltas como
+<strong>log (p)</strong>.</p></li>
+<li><p><strong>lower.tail</strong>: Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P [X &gt; x]</strong></p></li>
 </ul>
+</div>
+<div id="ejercicio-de-ejemplo" class="section level2">
+<h2>Ejercicio de Ejemplo</h2>
+<p>**De un grupo de 20 ingenieros con doctorado, se eligen 10
+aleatoriamente con el fin de contratarlos.</p>
+<p>¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los
+5 mejores del grupo de 20?**</p>
+<div id="solución" class="section level4">
+<h4><strong>Solución</strong></h4>
+<ul>
+<li><strong>N = 20</strong>. Número total de ingenieros.</li>
+<li><strong>n = 10.</strong>* Muestra aleatoria de la población total de
+ingenieros <strong>(20 ingenieros).</strong></li>
+<li><strong>r = 5.</strong> Conjunto de 5 ingenieros estén los 5
+mejores.</li>
+</ul>
+<pre class="r"><code>dhyper(5,10,20-10,5)</code></pre>
+<pre><code>## [1] 0.01625387</code></pre>
+</div>
+</div>
+</div>
+<div id="distribucion-de-poisson." class="section level1">
+<h1>3.Distribuci´on de Poisson.</h1>
+<p>se usa para modelar el número de eventos que ocurren en un proceso de
+Poisson. Sea <strong>X ∼ P(λ)X∼P(λ)</strong>, esto es, una variable
+aleatoria con distribución de Poisson donde el número medio de eventos
+que ocurren en un determinado intervalo es <strong>λ</strong>.</p>
+<p><strong><em>En relación a esta distribución, R tiene 4
+funciones:</em></strong></p>
+<ul>
+<li><p><strong>rpois:</strong> genera valores aleatorios acorde a los
+parámetros indicados.</p></li>
+<li><p><strong>dpois:</strong> calcula la probabilidad puntual para un
+valor específico.</p></li>
+<li><p><strong>ppois:</strong> proporciona la probabilidad acumulada
+para un cuantil específico.</p></li>
+<li><p><strong>qpois:</strong> proporciona el cuantil para una
+probabilidad específica</p></li>
+</ul>
+<div id="ejercicio-de-ejemplo-1" class="section level2">
+<h2>Ejercicio de Ejemplo</h2>
+<p><strong>El número medio de enfermos recibidos cada 10 minutos en un
+centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
+que dicho número de enfermos sigue una distribución de Poisson.</strong>
+<strong><em>Calcular la probabilidad de que entre las 12 horas y las 12
+horas y 10 minutos haya: Exactamente 2 enfermos</em></strong></p>
+<pre class="r"><code>dpois(2, 1.8)</code></pre>
+<pre><code>## [1] 0.2677842</code></pre>
+</div>
+</div>
 
 
 

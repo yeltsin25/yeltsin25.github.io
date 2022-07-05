@@ -1,0 +1,335 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={DISTRIBUCIONES DISCRETA},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{DISTRIBUCIONES DISCRETA}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{distribuciuxf3n-binomial}{%
+\section{1. Distribución Binomial}\label{distribuciuxf3n-binomial}}
+
+Es aquella función que representa cuál es la probabilidad de obtener
+\textbf{x} éxitos en \textbf{n} pruebas de Bernoulli independientes,
+cuya probabilidad de éxito es de \textbf{p}. \pagebreak la probabilidad
+de que se obtengan \textbf{k} éxitos está dada por la función de
+probabilidad \textbf{f}
+
+\[f(k) \;=\; P(X=k)  \;=\; {n\choose k} p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n\]
+\textbf{\emph{Con Esperanza y varianza de}}
+\[E(X)= np, \qquad V(X)= np(1-p)\]
+
+\hypertarget{funciuxf3n-de-probabilidad-en-r.}{%
+\paragraph{Función de probabilidad en
+R.}\label{funciuxf3n-de-probabilidad-en-r.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dbinom }\CommentTok{\#Función de masa de probabilidad Binomial (Función de probabilidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (x, size, prob, log = FALSE) 
+## .Call(C_dbinom, x, size, prob, log)
+## <bytecode: 0x000002772e41e9b0>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pbinom }\CommentTok{\#Distribución binomial (Función de distribución acumulada)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (q, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_pbinom, q, size, prob, lower.tail, log.p)
+## <bytecode: 0x00000277270a76a8>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qbinom }\CommentTok{\#    Función cuantil binomial}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (p, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_qbinom, p, size, prob, lower.tail, log.p)
+## <bytecode: 0x000002772e2dc260>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rbinom  }\CommentTok{\#Generación de números pseudoaleatorios binomiales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (n, size, prob) 
+## .Call(C_rbinom, n, size, prob)
+## <bytecode: 0x000002772e33a4e8>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\hypertarget{ejercicio-de-ejemplo.}{%
+\subsection{Ejercicio de ejemplo.}\label{ejercicio-de-ejemplo.}}
+
+\textbf{\emph{la probabilidad de que el éxito ocurra menos de 3 veces si
+el número de ensayos es 10 y la probabilidad de éxito por ensayo es 0.3
+es}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{3}\NormalTok{, }\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{prob =} \FloatTok{0.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6496107
+\end{verbatim}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica}{%
+\section{2. Distribución
+hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica}}
+
+Recuérdese que si se selecciona una muestra aleatoria de \textbf{n}
+consumidores de una población de \textbf{N} consumidores, el número
+\textbf{x} de usuarios que favorecen un producto específico tendría una
+distribución binomial cuando el tamaño muestra n es pequeño respecto al
+número de \textbf{N} de consumidores en la población, el número
+\textbf{x} a favor del producto tiene una distribución de probabilidad
+hipergeométrica, \emph{cuya fórmula es:} \pagebreak La correspondiente
+distribución de X se conoce con el nombre de distribución
+hipergeométrica con parámetros \textbf{n}, \textbf{M} y \textbf{N}.
+\[ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad n\leq N \]
+- \textbf{n:} Número de elementos en el muestra. - \textbf{M:} Número de
+elementos que tienen una característica especifica, por ejemplo el
+número de personas a favor un producto particular - \textbf{N:} Número
+de elementos en la población. - \textbf{K:} La probabilidad de elegir de
+manera exacta k éxitos
+
+\hypertarget{r-distribuciuxf3n-hipergeomuxe9trica.}{%
+\subsubsection{R: Distribución
+Hipergeométrica.}\label{r-distribuciuxf3n-hipergeomuxe9trica.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dhyper}\NormalTok{(x, m, n, k, }\AttributeTok{log =}\NormalTok{ F) }\CommentTok{\#Devuelve resultados de la función de densidad.}
+\FunctionTok{phyper}\NormalTok{(q, m, n, k, }\AttributeTok{lower.tail =}\NormalTok{ T, }\AttributeTok{log.p =}\NormalTok{ F)}\CommentTok{\#Devuelve resultados de la función de distribución acumulada.}
+\FunctionTok{qhyper}\NormalTok{(p, m, n, k, }\AttributeTok{lower.tail =}\NormalTok{ T, }\AttributeTok{log.p =}\NormalTok{ F)}\CommentTok{\#Devuelve resultados de los cuantiles de la Hipergeométrica.}
+\FunctionTok{rhyper}\NormalTok{(nn, m, n, k)}\CommentTok{\#Devuelve un vector de valores de la Hipergeométrica aleatorios\#}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{donde:} \textbf{\emph{Los argumentos que podemos pasar a las
+funciones expuestas en la anterior tabla, son:}}
+
+\begin{itemize}
+\item
+  \textbf{x}, \textbf{q}: Vector de cuantiles. Corresponde al número de
+  particulares en la muestra.
+\item
+  \textbf{m:} Selección aleatoria particular
+\item
+  \textbf{n:} El número total de la población menos la selección
+  aleatoria particular. \textbf{n = N - m}
+\item
+  \textbf{n:} El número de la selección a evaluar.
+\item
+  \textbf{prob:} Probabilidad.
+\item
+  \textbf{nn:} Número de observaciones.
+\item
+  \textbf{log}, \textbf{log.p:} Parámetro booleano, si es \textbf{TRUE},
+  las probabilidades p son devueltas como \textbf{log (p)}.
+\item
+  \textbf{lower.tail}: Parámetro booleano, si es TRUE (por defecto), las
+  probabilidades son \textbf{P{[}X ≤ x{]}}, de lo contrario, \textbf{P
+  {[}X \textgreater{} x{]}}
+\end{itemize}
+
+\hypertarget{ejercicio-de-ejemplo}{%
+\subsection{Ejercicio de Ejemplo}\label{ejercicio-de-ejemplo}}
+
+**De un grupo de 20 ingenieros con doctorado, se eligen 10
+aleatoriamente con el fin de contratarlos.
+
+¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los 5
+mejores del grupo de 20?**
+
+\hypertarget{soluciuxf3n}{%
+\paragraph{\texorpdfstring{\textbf{Solución}}{Solución}}\label{soluciuxf3n}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{N = 20}. Número total de ingenieros.
+\item
+  \textbf{n = 10.}* Muestra aleatoria de la población total de
+  ingenieros \textbf{(20 ingenieros).}
+\item
+  \textbf{r = 5.} Conjunto de 5 ingenieros estén los 5 mejores.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dhyper}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20{-}10}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01625387
+\end{verbatim}
+
+\hypertarget{distribucion-de-poisson.}{%
+\section{3.Distribuci´on de Poisson.}\label{distribucion-de-poisson.}}
+
+se usa para modelar el número de eventos que ocurren en un proceso de
+Poisson. Sea \textbf{X ∼ P(λ)X∼P(λ)}, esto es, una variable aleatoria
+con distribución de Poisson donde el número medio de eventos que ocurren
+en un determinado intervalo es \textbf{λ}.
+
+\textbf{\emph{En relación a esta distribución, R tiene 4 funciones:}}
+
+\begin{itemize}
+\item
+  \textbf{rpois:} genera valores aleatorios acorde a los parámetros
+  indicados.
+\item
+  \textbf{dpois:} calcula la probabilidad puntual para un valor
+  específico.
+\item
+  \textbf{ppois:} proporciona la probabilidad acumulada para un cuantil
+  específico.
+\item
+  \textbf{qpois:} proporciona el cuantil para una probabilidad
+  específica
+\end{itemize}
+
+\hypertarget{ejercicio-de-ejemplo-1}{%
+\subsection{Ejercicio de Ejemplo}\label{ejercicio-de-ejemplo-1}}
+
+\textbf{El número medio de enfermos recibidos cada 10 minutos en un
+centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
+que dicho número de enfermos sigue una distribución de Poisson.}
+\textbf{\emph{Calcular la probabilidad de que entre las 12 horas y las
+12 horas y 10 minutos haya: Exactamente 2 enfermos}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dpois}\NormalTok{(}\DecValTok{2}\NormalTok{, }\FloatTok{1.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2677842
+\end{verbatim}
+
+\end{document}

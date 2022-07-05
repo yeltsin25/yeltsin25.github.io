@@ -29,8 +29,7 @@ Variable aleatoria discreta:- Toma valores
 claramente separados, generalmente se produce por
 conteo.
 
-## 2. Media de una Distribución de
-Probabilidades. 
+## 2. Media de una Distribución de Probabilidades. 
 \pagebreak
 promedio a largo plazo de la variable aleatoria,
 también es conocido como valor esperado. Esta media es
@@ -42,7 +41,13 @@ correspondientes de ocurrencia.
 \pagebreak
 Mide el grado de dispersión de la distribución de probabilidades.
 
-```{r}
-plot(dbinom(0:10,10,0.6),type="h",xlab="k",ylab="P(X=k)",main="Función de Probabilidad B(10,0.6)")
-```
+
+
+
+
+
+
+
+
+
 

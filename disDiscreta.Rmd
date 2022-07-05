@@ -87,7 +87,7 @@ rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleator
 dhyper(5,10,20-10,5)
 ```
 
-# 3.Distribuci´on de Poisson.
+# 3.Distribución de Poisson.
 se usa para modelar el número de eventos que ocurren en un proceso de Poisson. Sea **X ∼ P(λ)X∼P(λ)**, esto es, una variable aleatoria con distribución de Poisson donde el número medio de eventos que ocurren en un determinado intervalo es **λ**.
  
 ***En relación a esta distribución, R tiene 4 funciones:***

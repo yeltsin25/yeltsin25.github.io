@@ -5,7 +5,7 @@ output:
   word_document: default
 ---
 
-## ¿Qué es una distribución de probabilidad?
+## ¿Qué es una distribución de probabilidad? 
 \pagebreak
 resultados posibles de un experimento y la probabilidad de cada
 resultado.

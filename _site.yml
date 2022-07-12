@@ -8,11 +8,9 @@ navbar:
     - text: "Distribución de Probabilidad"     
       href: disProbabilidad.html  
     - text: "Distribuciones Muestrales"
-      href: disDiscreta.html
+      href: muestra.html
     - text: "Distribución Continua"
       href: disContinua.html
-    - text: "Distribuciones Muestrales"
-      href: disDiscreta.html
 output:
   html_document:
     theme: flatly

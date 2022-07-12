@@ -1,112 +1,229 @@
 
 ---
-title: "DISTRIBUCIONES DISCRETA"
+title: "DISTRIBUCIONES MUESTRALES"
 output:
   pdf_document: default
   word_document: default
 ---
 
-# 1. Distribución Binomial
-Es aquella función que representa cuál es la probabilidad de obtener **x** éxitos en **n** pruebas de Bernoulli independientes, cuya probabilidad de éxito es de **p**.
-\pagebreak
-la probabilidad de que se obtengan **k** éxitos está dada por la función de probabilidad **f**
+# 1 Muestreo aleatorio
 
-$$f(k) \;=\; P(X=k)  \;=\; {n\choose k} p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n$$
-***Con Esperanza y varianza de***
-$$E(X)= np, \qquad V(X)= np(1-p)$$
+## 1.1 Población y parámetros
 
-#### Función de probabilidad en R.
-
-```{r}
-dbinom #Función de masa de probabilidad Binomial (Función de probabilidad)
-pbinom #Distribución binomial (Función de distribución acumulada)
-qbinom #	Función cuantil binomial
-rbinom	#Generación de números pseudoaleatorios binomiales
-```
-
-## Ejercicio de ejemplo.
-***la probabilidad de que el éxito ocurra menos de 3 veces si el número de ensayos es 10 y la probabilidad de éxito por ensayo es 0.3 es***
-```{r}
-pbinom(3, size = 10, prob = 0.3)
-```
-
-# 2. Distribución hipergeométrica
-Recuérdese que si se selecciona una muestra aleatoria de **n** consumidores de una población
-de **N** consumidores, el número **x** de usuarios que favorecen un producto específico tendría
-una distribución binomial cuando el tamaño muestra n es pequeño respecto al número de **N**
-de consumidores en la población, el número **x** a favor del producto tiene una distribución
-de probabilidad hipergeométrica, *cuya fórmula es:*
-\pagebreak
-La correspondiente distribución de X se conoce con el nombre de distribución hipergeométrica con parámetros **n**, **M** y **N**.
-$$ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad n\leq N $$
-- __n:__ Número de elementos en el muestra.
-- __M:__ Número de elementos que tienen una característica especifica, por ejemplo el número de personas a favor un producto particular
-- __N:__ Número de elementos en la población.
-- __K:__ La probabilidad de elegir de manera exacta k éxitos
-
-### R: Distribución Hipergeométrica.
-```{r eval=FALSE}
-dhyper(x, m, n, k, log = F) #Devuelve resultados de la función de densidad.
-phyper(q, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de la función de distribución acumulada.
-qhyper(p, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de los cuantiles de la Hipergeométrica.
-rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleatorios#
-```
-**donde:**
-***Los argumentos que podemos pasar a las funciones expuestas en la anterior tabla, son:***
-
-- **x**, **q**: Vector de cuantiles. Corresponde al número de particulares en la muestra.
-
-- **m:** Selección aleatoria particular
-
-- **n:** El número total de la población menos la selección aleatoria particular. **n = N - m**
-
-- **n:** El número de la selección a evaluar.
-
-- **prob:** Probabilidad.
-
-- **nn:** Número de observaciones.
-
-- **log**, **log.p:** Parámetro booleano, si es **TRUE**, las probabilidades p son devueltas como **log (p)**.
-
-- **lower.tail**: Parámetro booleano, si es TRUE (por defecto), las probabilidades son **P[X ≤ x]**, de lo contrario,
-**P [X > x]**
-
-## Ejercicio de Ejemplo
-
-**De un grupo de 20 ingenieros con doctorado, se eligen 10 aleatoriamente con el fin de contratarlos.
-
-¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los 5 mejores del grupo de 20?**
-
-#### **Solución**
-
-- **N = 20**. Número total de ingenieros.
-- **n = 10.*** Muestra aleatoria de la población total de ingenieros **(20 ingenieros).**
-- **r = 5.** Conjunto de 5 ingenieros estén los 5 mejores.
-
-```{r}
-dhyper(5,10,20-10,5)
-```
-
-# 3.Distribución de Poisson.
-se usa para modelar el número de eventos que ocurren en un proceso de Poisson. Sea **X ∼ P(λ)X∼P(λ)**, esto es, una variable aleatoria con distribución de Poisson donde el número medio de eventos que ocurren en un determinado intervalo es **λ**.
+**Definición**. Se denomina población o universo a la totalidad de personas u 
+objetos que tienen una o más características medibles o contables de naturaleza 
+cualitativa o cuantitativa.
+La característica medible o contable es una variable estadística cuyo valor, 
+numérico o no numérico, es una observación.
+Si la variable estadística a estudiar es una sola, cada elemento de la población 
+puede asociarse con una observación. En este sentido, se denon.ina población al 
+corjurtto de valores posibles de la variable.
+Si los elementos de la población se definen en forma aleatoria, entonces la 
+variable estadística cuantitativa es una variable aleatoria cuyos valores constituyen 
+la población. En este caso, la distribución de la población es la distribución de la 
+variable aleatoria, por lo tanto, la media y la varianza de la variable aleatoria, 
+vienen a ser la media y la varianza de la población.
+Si la variable aleatoria **X** tiene distribución \text{$$f(x)$$}, se puede referir a la población \text{$$f(x)$$}, Por ejemplo, si **X** está normalmente distribuida se dice que la población está normalmente distribuida o que se tiene una población normal.
+Por el número de observaciones la población puede ser finita de tamaño **N**, o 
+infinita. Algunas poblaciones finitas son tan grandes que en teoría son asumidas 
+como poblaciones infinitas.
  
-***En relación a esta distribución, R tiene 4 funciones:***
+**Definición**. Se denominan parámetros a las medidas descriptivas que caracterizan 
+a la distribución de la población. Entre otros, los parámetros poblacionales son.
 
-- **rpois:** genera valores aleatorios acorde a los parámetros indicados.
+\text{$$Media: µ$$}
+\text{$$Proporción: n \text{  o  } p$$}
+\text{$$Varianza: σ^2$$}
+\text{$$Desviación \text{ Estandar: } σ$$}
 
-- **dpois:** calcula la probabilidad puntual para un valor específico.
+En diversas aplicaciones estadísticas al estudiar una población, la variable 
+aleatoria que la define puede tener distribución conocida o no. La distribución de 
+la población es conocida, si se conocen sus parámetros y su forma, es decir si se 
+conoce su distribución de probabilidad .
+Si la distribución de la población es desconocida, podemos estar interesados en:
 
-- **ppois:** proporciona la probabilidad acumulada para un cuantil específico.
+ **Estimar sus parámetros**, si se conoce su distribución, y
+**Probar determinada suposición** acerca de un valor determinado del 
+parámetro, o probar la suposición acerca del tipo de distribución de 
+probabilidades de la población.
 
-- **qpois:** proporciona el cuantil para una probabilidad específica
+## 1.2 Muestra aleatoria
+
+En vez de examinar la población entera, lo cual puede resultar físicamente 
+imposible o no práctica, puede examinarse una **muestra** de la población con el 
+propósito de **inferir** los resultados encontrados.
+Una **muestra** es un subconjunto de la poblacion.
+El proceso de seleccon de una muestra de n elementos de la población se 
+llama **muestreo**. Las ventajas y las razones para el muestreo son diversas, las 
+mismas que no explicaremos en este texto.
+El proceso que consiste en inferir resultados a la población a partir de la muestra 
+se denomina **inferencia estadística**. La confiabilidad de las conclusiones extraídas 
+concernientes a una población dependen de si la muestra se ha escogido 
+apropiadamente de manera que represente bien a la población.
+Una técnica para obtener muestras representativas de la población es el muestreo
+**aleatorio**. Se llama muestreo aleatorio a todo proceso que asegure en cualquier 
+momento del mismo igual probabilidad de ser incluidos en la muestra a todos los 
+elementos que pertenezcan a la población en dicho momento.
+A las muestras aleatorias se les denomina también muestras probabilísticas 
+Las muestras aleatorias son de 4 tipos: **Al azar simple**, **al azar sistemático**, 
+**estratificado** y **por grupos (o conglomerados)**.
+
+- **Muestra al azar simple**
+  Es aquella en la que los elementos se escogen del total de la población en forma 
+  individual con una oportunidad igual e independiente .Por lo general se utiliza una 
+  tabla de números aleatorios.
+  Si la población es infinita el muestreo aleatorio ocurre cuando la extracción de 
+  los elementos de la muestra se hace con o sin reemplazo. Si la población es finita de       tamaño N, el muestreo aleatorio ocurre también si la extracción es con o sin 
+  reemplazo. Con reemplazo, la probabilidad de cada elemento de ser extraído es 
+  1/N. Si es, sin reemplazo, la probabilidad de cada elemento de ser elegido es \text{$$1/N$$} en 
+  la primera extracción, es de \text{$$1/(N-1)$$} en la segunda extracción, es \text{$$I/(N -2)$$} en la tercera extracción, etc.
+  
+  Por ejemplo, seleccionar una muestra al azar simple es similar a la que se 
+  realiza en la extracción aleatoria de números en una lotería.
+  
+- **Muestra al azar sistemática**
+  Una muestra aleatoria sistemática es aquella en que sus elementos se eligen de 
+  la población a intervalos uniformes a partir de un listado ordenado. El fc-ésimo 
+  elemento de la muestra es \text{$$k=N/n$$}, donde n es el tamaño de la muestra y N el       tamaño 
+  de la población.
+  Por ejemplo, al elegir una muestra sistemática de **100** alumnos de EE.GG.CC 
+  que tiene **3000** alumnos, \text{$$k =3000/100 =30$$}. El primero se elige en forma aleatoria de 
+  los **30** primeros de la lista y los demás sistemáticamente cada **30** alumnos de la 
+  lista.
+
+- **Muestreo aleatorio estratificado**
+  Primero se clasifican a los elementos de la población en subgrupos separados 
+  de acuerdo con una o más características importantes (estratos). Después se obtiene 
+  por separado una muestra aleatoria simple o sistemática en cada estrato. El tamaño 
+  de cada submuestra debe ser proporcional al tamaño del estrato para asegurar 
+  representatividad.
+  Por ejemplo, para obtener una muestra aleatoria de **600** electores de una población 
+  de **600,000** electores de los cuales 300,0000 son de clase baja, **200,000** de clase media 
+  y **100,000** de clase alta. Se deben elegir al azar 300 de clase baja, **200** de clase media y 
+  **100** de clase alta.
 
 
-## Ejercicio de Ejemplo
-**El número medio de enfermos recibidos cada 10 minutos en un centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo que dicho número de enfermos sigue una distribución de Poisson.**
- ***Calcular la probabilidad de que entre las 12 horas y las 12 horas y 10 minutos haya: Exactamente 2 enfermos***
-```{r}
-dpois(2, 1.8)
-```
- 
- 
+- **Muestreo aleatorio agrupado**
+  Denominado también por conglomerados. Los elementos de la población se 
+  dividen en forma natural en subgrupos. Luego se eligen al azar los subgrupos que 
+  forman la muestra.
+  Por **ejemplo**, al estudiar los pensiones que se pagan en los colegios particulares 
+  donde no es posible tener una lista de todas las pensiones, pero puede obtenerse una 
+  lista de los colegios particulares (grupos). Entonces, con esta lista puede obtener 
+  una muestra aleatoria de colegios y así obtener los pensiones que se pagan en estos 
+  colegios.
+  **El muestreo aleatorio simple**, es pues el proceso de selección de una muestra 
+  por el cual cada uno de los elementos de la población tienen una oportunidad igual 
+  e independiente de ser incluidos en la muestra. En el muestreo aleatorio simple cada
+
+  variable aleatoria $X_{i}$ cuyo valor es 
+$x_{i}$, tiene la misma distribución de la población de
+  la cual se obtiene. Por ejemplo, supongamos que una población consiste de **8** fichas, 
+  dos con el número **2**, cuatro con el número **5**, y dos con el número 7. Si se extrae 
+  una ficha al azar, la ficha puede tomar cualquiera de los tres valores: 2 con 
+  probabilidad **0.25**, **5** con probabilidad **0.50**, y **7** con probabilidad 0.25, que viene a 
+  ser la misma distribución de la población.
+  Luego, diremos que los valores $x_{1},x_{2},x_{3},x_{4}...x_{n}$ tomados respectivamente por las 
+  variables aleatorias $X_{1},X_{2},X_{3},X_{4}...X_{n}$ , constituyen una muestra aleatoria simple de 
+  tamaño **n** de una población $f(x)$ de la variable aleatoria **X** , si estas variables 
+  aleatorias están distribuidas en forma idéntica a la distribución de la población y 
+  son independientes. Llamaremos también muestra aleatoria simple a este conjunto 
+  de variables aleatorias. Formalmente definimos una muestra aleatoria simple o 
+  brevemente muestra aleatoria de la forma siguiente:
+
+  **Definición**, (muestra aleatoria simple). Dada una población $f(x)$ con media $µ$ y 
+  varianza $σ^2$ **2**, se denomina muestra aleatoria de tamaño n de esa población, a un 
+  conjunto de n variables aleatorias $X_{1},X_{2},X_{3},X_{4}...X_{n}$  tales que:
+
+
+    1) Son independientes.
+    2) Cada una de ellas está distribuida en forma idéntica a $f(x)$.
+  La condición 1) implica que la distribución de probabilidad conjunta de la
+  muestra aleatoria $X_{1},X_{2},X_{3},X_{4}...X_{n}$ es la expresión:
+$$  ( f(x_{1},x_{2},x_{3}...x_{n}) = f(x_{1})f(x_{2})f(x_{3})...f(x_{n})$$
+  La condición 2) significa que:
+    **a)**  Cada variable aleatoria X¿ tiene la misma media y varianza de la distribución
+  de $X$ , es decir: $E(X_{i})=$ y $Var(X_{i})=σ^2$
+  
+    **b)** La distribución de probabilidad de cada variable aleatoria $X_{i}$ es la misma 
+      distribución de probabilidades de X, esto es. $f(x_{i}) = f(x)$
+**NOTA**. El proceso de obtener este tipo de muestra requiere población infinita o 
+bien población finita pero con reposición de elementos.
+  
+  #### Ejercicio de aplicación.
+  
+  sea $X_{1},X_{2},X_{3},X_{4}...X_{n}$ una muestra aleatoria de tamaño n de una población    normal $N(µ,σ^2)$
+  
+  a) Si $n = 6$,  $µ= 20$ , y $ σ^2= 25$, calcular la probabilidad de que:
+    a1) $X_{1}+X_{3}+X_{4}-X_{6}$ sea mayor que $52$.
+    
+#### SOLUCION.
+
+ La media y la varianza de la variable aleatoria $Y = X_{1}+X_{3}+X_{4}-X_{6}$ están dadas respectivamente por:
+$$E(Y)=E(X_{1})+E(X_{3})+E(X_{4})-E(X_{6})=20+ 20+ 20- 20= 40$$
+
+$$V(Y)=V(X_{1})+V(X_{3})+V(X_{4})+V(X_{6})=25 + 25 + 25 + 25 = 100.
+$$
+
+
+  Por la propiedad reproductiva de la normal la variable aleatoria Y tiene 
+  distribución normal $N(40,100)$, luego, la variable aleatoria estándar:
+
+$$Z=\frac{Y-µ_y}{σ_y}, \text{tiene una distribución N(0,1) y:}$$
+
+$$P[Y>52]= P[\frac{Y-40}{10}>\frac{52-40}{10}]=P[Z>1.2]=0.1151$$
+
+## 1.3 Estadísticas
+
+  Definición. Se denomina estadística a cualquier función de las variables aleatorias 
+  que constituyen la muestra.
+  Una estadística es una variable aleatoria $Y=H(X_{1},X_{2},X_{3}...X_{n})$ , cuyo valor es 
+  el número real $y=H(x_{1},x_{2},x_{3}...x_{n})$ . El término estadística se usa para     referirse 
+  tanto a la función de la muestra, como al valor de esta función.
+  En general para cada parámetro poblacional hay una estadística correspondiente 
+  a calcularse a partir de la muestra. Algunas estadísticas importantes y sus valores 
+  calculados a partir de una muestra aleatoria son:
+  
+
+$\text{a) la media muestral }\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}\text{ :  con valor  } \bar{x}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$
+
+$\text{b) La varianza muestral } S^2=\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2 \text{:  con valor } s^2 =\sum_{i=1}^{n}(X_{i}-\bar{X})^2$
+$ \text{c) La desviación estándar muestral: } S=\sqrt{S^2}$
+
+$\text{d) La proporción muestral (porcentaje de éxitos en la muestra) } \bar{P}= \sum_{i=1}^{n}X_{i} \text{donde X¡ - fi(l, p) (el parámetro p es el porcentaje de éxitos en la población).También}$
+$$\bar{P}=\frac{X}{n}\text{, donde } \text{X ~B(n,p)} $$
+
+## 2.  Distribuciones muéstrales
+  
+  Definición. Se denorr .na distribución muesvral de una estadística a su 
+  distribución de probabilidad
+  Por ejemplo, a la distribución de probabilidad de la estadística media $\bar{X}$ , se le 
+  denomina distribución muestral de la media.
+  
+  
+### 2.1 Distribución muestral de la media $\bar{X}$
+  
+  **TEOREMA** Sea $x_{1},x_{2},x_{3}...x_{n}$ una muestra aleatoria de            tamaño **n** escogida  de una población $f(x)$ con media $µ$ y $σ^2$ es la media muestral , entonces.
+  
+  \text{a) }
+  
+$\text{ a)}E(\bar{X}=µ)$
+      
+$\text{b)}Var(\bar{X}=\frac{σ^2}{n})$
+      
+$\text{ Para n suficientemente grande, la variable aleatoria}$
+$$Z=\frac{\bar{X}-µ}{\frac{σ}{\sqrt{n}}}$$
+
+
+  **PRUEBA**
+  por la definición de muestra aleatoria, las variables aleatorias $X_{1},X_{2},X_{3}...X_{n}$ . son independientes e idénticamente distribuidas como $f(x)$ con $E(X_{i})=µ$ y con $Var(X_{i})=σ^2$
+  
+  $\text{a) } E(\bar{X})=E(\sum_{i=1}^{n}X_{i})=\frac{1}{n}\sum_{i=1}^{n}E(X_{i})=\frac{1}{n}nµ=µ$
+  
+  $\text{b) } Var(\bar{X})=V(\sum_{i=1}^{n}X_{i})=\frac{1}{n^2}\sum_{i=1}^{n}V(X_{i})=\frac{1}{n^2}nσ^2=\frac{σ}{n}$
+$\text{Se deduce del teorema del límite central escribiendo}$
+$$Z =\frac{\bar{X}-µ}{\frac{σ}{\sqrt{n}}}$$
+
+
+
 

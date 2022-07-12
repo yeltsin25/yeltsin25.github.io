@@ -1,3 +1,9 @@
+---
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
 
 ![](caratula.png)
 
@@ -22,6 +28,7 @@ Las decisiones estadísticas basadas en la estadística inferencial son fundamen
 en la investigación que son evaluadas en
 términos de distribución de
 probabilidades.
+
 
 
 

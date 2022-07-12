@@ -295,17 +295,516 @@ tomar valores diferentes.</p>
 <p>Variable aleatoria discreta:- Toma valores claramente separados,
 generalmente se produce por conteo.</p>
 </div>
-<div id="media-de-una-distribución-de" class="section level2">
-<h2>2. Media de una Distribución de</h2>
-<p>Probabilidades. promedio a largo plazo de la variable aleatoria,
-también es conocido como valor esperado. Esta media es un promedio
-ponderado, en el que los valores posibles se ponderan mediante sus
-probabilidades correspondientes de ocurrencia.</p>
+<div id="media-de-una-distribución-de-probabilidades."
+class="section level2">
+<h2>2. Media de una Distribución de Probabilidades.</h2>
+<div style="page-break-after: always;"></div>
+<p>promedio a largo plazo de la variable aleatoria, también es conocido
+como valor esperado. Esta media es un promedio ponderado, en el que los
+valores posibles se ponderan mediante sus probabilidades
+correspondientes de ocurrencia.</p>
 </div>
 <div id="varianza." class="section level2">
 <h2>3. Varianza.</h2>
 <div style="page-break-after: always;"></div>
 <p>Mide el grado de dispersión de la distribución de probabilidades.</p>
+</div>
+<div id="distribución-binomial" class="section level1">
+<h1>1. Distribución Binomial</h1>
+<p>Es aquella función que representa cuál es la probabilidad de obtener
+<strong>x</strong> éxitos en <strong>n</strong> pruebas de Bernoulli
+independientes, cuya probabilidad de éxito es de <strong>p</strong>. la
+probabilidad de que se obtengan <strong>k</strong> éxitos está dada por
+la función de probabilidad <strong>f</strong></p>
+<p><span class="math display">\[f(k) \;=\; P(X=k)  \;=\; {n\choose k}
+p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n\]</span> <strong><em>Con
+Esperanza y varianza de</em></strong> <span class="math display">\[E(X)=
+np, \qquad V(X)= np(1-p)\]</span></p>
+<div id="función-de-probabilidad-en-r." class="section level4">
+<h4>Función de probabilidad en R.</h4>
+<pre class="r"><code>dbinom #Función de masa de probabilidad Binomial (Función de probabilidad)</code></pre>
+<pre><code>## function (x, size, prob, log = FALSE) 
+## .Call(C_dbinom, x, size, prob, log)
+## &lt;bytecode: 0x00000000159ce0c8&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>pbinom #Distribución binomial (Función de distribución acumulada)</code></pre>
+<pre><code>## function (q, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_pbinom, q, size, prob, lower.tail, log.p)
+## &lt;bytecode: 0x0000000014983550&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>qbinom #    Función cuantil binomial</code></pre>
+<pre><code>## function (p, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_qbinom, p, size, prob, lower.tail, log.p)
+## &lt;bytecode: 0x0000000013d83b48&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>rbinom  #Generación de números pseudoaleatorios binomiales</code></pre>
+<pre><code>## function (n, size, prob) 
+## .Call(C_rbinom, n, size, prob)
+## &lt;bytecode: 0x00000000138a57f8&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+</div>
+<div id="ejercicio-de-ejemplo." class="section level2">
+<h2>Ejercicio de ejemplo.</h2>
+<p><strong><em>la probabilidad de que el éxito ocurra menos de 3 veces
+si el número de ensayos es 10 y la probabilidad de éxito por ensayo es
+0.3 es</em></strong></p>
+<pre class="r"><code>pbinom(3, size = 10, prob = 0.3)</code></pre>
+<pre><code>## [1] 0.6496107</code></pre>
+</div>
+</div>
+<div id="distribución-hipergeométrica" class="section level1">
+<h1>2. Distribución hipergeométrica</h1>
+<p>Recuérdese que si se selecciona una muestra aleatoria de
+<strong>n</strong> consumidores de una población de <strong>N</strong>
+consumidores, el número <strong>x</strong> de usuarios que favorecen un
+producto específico tendría una distribución binomial cuando el tamaño
+muestra n es pequeño respecto al número de <strong>N</strong> de
+consumidores en la población, el número <strong>x</strong> a favor del
+producto tiene una distribución de probabilidad hipergeométrica,
+<em>cuya fórmula es:</em> La correspondiente distribución de X se conoce
+con el nombre de distribución hipergeométrica con parámetros
+<strong>n</strong>, <strong>M</strong> y <strong>N</strong>. <span
+class="math display">\[ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose
+k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2,
+\ldots, n \quad \text{y}\quad n\leq N \]</span> - <strong>n:</strong>
+Número de elementos en el muestra. - <strong>M:</strong> Número de
+elementos que tienen una característica especifica, por ejemplo el
+número de personas a favor un producto particular - <strong>N:</strong>
+Número de elementos en la población. - <strong>K:</strong> La
+probabilidad de elegir de manera exacta k éxitos</p>
+<div id="r-distribución-hipergeométrica." class="section level3">
+<h3>R: Distribución Hipergeométrica.</h3>
+<pre class="r"><code>dhyper(x, m, n, k, log = F) #Devuelve resultados de la función de densidad.
+phyper(q, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de la función de distribución acumulada.
+qhyper(p, m, n, k, lower.tail = T, log.p = F)#Devuelve resultados de los cuantiles de la Hipergeométrica.
+rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleatorios#</code></pre>
+<p><strong>donde:</strong> <strong><em>Los argumentos que podemos pasar
+a las funciones expuestas en la anterior tabla, son:</em></strong></p>
+<ul>
+<li><p><strong>x</strong>, <strong>q</strong>: Vector de cuantiles.
+Corresponde al número de particulares en la muestra.</p></li>
+<li><p><strong>m:</strong> Selección aleatoria particular</p></li>
+<li><p><strong>n:</strong> El número total de la población menos la
+selección aleatoria particular. <strong>n = N - m</strong></p></li>
+<li><p><strong>n:</strong> El número de la selección a evaluar.</p></li>
+<li><p><strong>prob:</strong> Probabilidad.</p></li>
+<li><p><strong>nn:</strong> Número de observaciones.</p></li>
+<li><p><strong>log</strong>, <strong>log.p:</strong> Parámetro booleano,
+si es <strong>TRUE</strong>, las probabilidades p son devueltas como
+<strong>log (p)</strong>.</p></li>
+<li><p><strong>lower.tail</strong>: Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P [X &gt; x]</strong></p></li>
+</ul>
+</div>
+<div id="ejercicio-de-ejemplo" class="section level2">
+<h2>Ejercicio de Ejemplo</h2>
+<p>**De un grupo de 20 ingenieros con doctorado, se eligen 10
+aleatoriamente con el fin de contratarlos.</p>
+<p>¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los
+5 mejores del grupo de 20?**</p>
+<div id="solución" class="section level4">
+<h4><strong>Solución</strong></h4>
+<ul>
+<li><strong>N = 20</strong>. Número total de ingenieros.</li>
+<li><strong>n = 10.</strong>* Muestra aleatoria de la población total de
+ingenieros <strong>(20 ingenieros).</strong></li>
+<li><strong>r = 5.</strong> Conjunto de 5 ingenieros estén los 5
+mejores.</li>
+</ul>
+<pre class="r"><code>dhyper(5,10,20-10,5)</code></pre>
+<pre><code>## [1] 0.01625387</code></pre>
+</div>
+</div>
+</div>
+<div id="distribución-de-poisson." class="section level1">
+<h1>3.Distribución de Poisson.</h1>
+<p>se usa para modelar el número de eventos que ocurren en un proceso de
+Poisson. Sea <strong>X ∼ P(λ)X∼P(λ)</strong>, esto es, una variable
+aleatoria con distribución de Poisson donde el número medio de eventos
+que ocurren en un determinado intervalo es <strong>λ</strong>.</p>
+<p><strong><em>En relación a esta distribución, R tiene 4
+funciones:</em></strong></p>
+<ul>
+<li><p><strong>rpois:</strong> genera valores aleatorios acorde a los
+parámetros indicados.</p></li>
+<li><p><strong>dpois:</strong> calcula la probabilidad puntual para un
+valor específico.</p></li>
+<li><p><strong>ppois:</strong> proporciona la probabilidad acumulada
+para un cuantil específico.</p></li>
+<li><p><strong>qpois:</strong> proporciona el cuantil para una
+probabilidad específica</p></li>
+</ul>
+<div id="ejercicio-de-ejemplo-1" class="section level2">
+<h2>Ejercicio de Ejemplo</h2>
+<p><strong>El número medio de enfermos recibidos cada 10 minutos en un
+centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
+que dicho número de enfermos sigue una distribución de Poisson.</strong>
+<strong><em>Calcular la probabilidad de que entre las 12 horas y las 12
+horas y 10 minutos haya: Exactamente 2 enfermos</em></strong></p>
+<pre class="r"><code>dpois(2, 1.8)</code></pre>
+<pre><code>## [1] 0.2677842</code></pre>
+</div>
+</div>
+<div id="distribución-continua" class="section level1">
+<h1>Distribución continua</h1>
+<p>Una distribución continua describe las probabilidades de los posibles
+valores de una variable aleatoria continua. Una variable aleatoria
+continua es una variable aleatoria con un conjunto de valores posibles
+(conocido como el rango) que es infinito y no se puede contar.</p>
+<p>Las probabilidades de las variables aleatorias continuas
+<strong>(X)</strong> se definen como el área por debajo de la curva de
+su PDF. Por lo tanto, solo los rangos de valores pueden tener una
+probabilidad diferente de cero. La probabilidad de que una variable
+aleatoria continua equivalga a algún valor siempre es cero.</p>
+<div id="funciones-disponibles-para-distribuciones-continuas"
+class="section level3">
+<h3>Funciones disponibles para distribuciones continuas</h3>
+<p><strong>Para cada distribución continua se tienen 4 funciones, a
+continuación el listado de las funciones y su utilidad</strong></p>
+<pre class="r"><code>dxxx(x, ...)  # Función de densidad de probabilidad, f(x)
+pxxx(q, ...)  # Función de distribución acumulada hasta q, F(x)
+qxxx(p, ...)  # Cuantil para el cual P(X &lt;= q) = p
+rxxx(n, ...)  # Generador de números aleatorios.</code></pre>
+<p><strong>En el lugar de las letras xxx se de debe colocar el nombre de
+la distribución en R, a continuación el listado de nombres disponibles
+para las 11 distribuciones continuas básicas.</strong></p>
+<pre class="r"><code>beta     # Beta
+cauchy   # Cauchy
+chisq    # Chi-cuadrada
+exp      # Exponencial
+f        # F
+gamma    # Gama
+lnorm    # log-normal
+norm     # normal
+t        # t-student
+unif     # Uniforme
+weibull  # Weibull</code></pre>
+<p><strong>Combinando las funciones y los nombres se tiene un total de
+44 funciones, por ejemplo, para obtener la función de densidad de
+probabilidad f(x) de una normal se usa la función dnorm( ) y para
+obtener la función acumulada F(x) de una Beta se usa la función pbeta(
+)</strong></p>
+</div>
+<div id="distribución-beta" class="section level2">
+<h2>1. DISTRIBUCIÓN BETA</h2>
+<p>La distribución beta es posible para una variable aleatoria continua
+que toma valores en el intervalo <strong>[0,1]</strong>, lo que la hace
+muy apropiada para modelar proporciones. En la inferencia bayesiana, por
+ejemplo, es muy utilizada como distribución a priori cuando las
+observaciones tienen una distribución binomial.</p>
+<p>Uno de los principales recursos de esta distribución es el ajuste a
+una gran variedad de distribuciones empíricas, pues adopta formas muy
+diversas dependiendo de cuáles sean los valores de los parámetros de
+forma <strong>α</strong> y <strong>β</strong>, mediante los que viene
+definida la distribución.</p>
+<div id="caracteristicas" class="section level3">
+<h3>Caracteristicas</h3>
+<p><strong>Campo de variación:</strong> <span
+class="math display">\[0≤x≤1\]</span> <strong>Parámetros:</strong> <span
+class="math display">\[α: parámetro -de -forma,α&gt;0\]</span></p>
+<p><span class="math display">\[β:parámetro -de
+-forma,β&gt;0\]</span></p>
+<p><strong>R: Distribución Beta.</strong></p>
+<pre class="r"><code>dbeta(x, shape1, shape2, ncp = 0, log = F)  #Devuelve resultados de la función de densidad.
+pbeta(q, shape1, shape2, ncp = 0, lower.tail = T, log.p = F) #  Devuelve resultados de la función de distribución acumulada.
+qbeta(p, shape1, shape2, ncp = 0, lower.tail = T, log.p = F) #  Devuelve resultados de los cuantiles de la distribución Beta.
+rbeta(n, shape1, shape2, ncp = 0)#Devuelve un vector de valores de la distribución Beta aleatorios.</code></pre>
+<p><strong>Los argumentos que podemos pasar a las funciones expuestas en
+la anterior tabla, son:</strong></p>
+<ul>
+<li><p><strong>x</strong>, <strong>q:</strong> Vector de
+cuantiles.</p></li>
+<li><p><strong>p:</strong> Vector de probabilidades.</p></li>
+<li><p><strong>n:</strong> Números de observaciones.</p></li>
+<li><p><strong>shape1</strong>, <strong>shape2:</strong> Parámetros de
+la Distribución Beta. <strong>Shape1 = α</strong> y <strong>Shape2 =
+β</strong>. Ambos deben ser positivos.</p></li>
+<li><p><strong>ncp:</strong> Parámetro lógico que determina si la
+distribución es central o no.</p></li>
+<li><p><strong>log, log.p:</strong> Parámetro booleano, si es TRUE, las
+probabilidades p son devueltas como <strong>log (p).</strong></p></li>
+<li><p><strong>lower.tail:</strong> Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P[X &gt; x].</strong></p></li>
+</ul>
+</div>
+<div id="ejercicio-de-aplicación" class="section level3">
+<h3>Ejercicio de aplicación</h3>
+<p><strong>Considere que una variable aleatoria X se distribuye beta con
+parámetros shape1=2 y shape2=5</strong> Dibuje la densidad de la
+distribución.</p>
+<div id="solución-1" class="section level4">
+<h4>Solución</h4>
+<p>La función <strong>dbeta</strong> sirve para obtener la altura de la
+curva de una distribución <strong>beta</strong> y combinándola con la
+función curve se puede dibujar la densidad solicitada.</p>
+<pre class="r"><code>curve(dbeta(x, 2, 5), lwd=3, las=1, ylab=&#39;Densidad&#39;)</code></pre>
+<p><img src="disProbabilidad_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="distribución-gamma" class="section level2">
+<h2>2. Distribución Gamma</h2>
+<p>En este apartado, se explicarán las funciones existentes en R para
+obtener resultados que se basen en la <strong>distribución
+Gamma</strong>.</p>
+<p><strong>Para obtener valores que se basen en la distribución Gamma,
+R, dispone de cuatro funciones:</strong></p>
+<pre class="r"><code>dgamma(x, shape, rate, scale = 1/rate, log = F)#    Devuelve resultados de la función de densidad.
+
+pgamma(q, shape, rate, scale = 1/rate, lower.tail = T, log.p = F)   #Devuelve resultados de la función de distribución acumulada.
+
+qgamma(p, shape, rate, scale = 1/rate, lower.tail = T, log.p = F)   #Devuelve resultados de los cuantiles de la distribución Gamma.
+
+rgamma(n, shape, rate, scale = 1/rate) #    Devuelve un vector de valores de la distribución Gamma aleatorios.</code></pre>
+<p><strong>Los argumentos que podemos pasar a las funciones expuestas en
+la anterior tabla, son:</strong></p>
+<ul>
+<li><p><strong>x, q:</strong> Vector de cuantiles.</p></li>
+<li><p><strong>p:</strong> Vector de probabilidades.</p></li>
+<li><p><strong>n:</strong> Números de observaciones.</p></li>
+<li><p><strong>rate:</strong> Alternativa para especificar el valor de
+escala (Scale). Por defecto, su valor es igual a 1.</p></li>
+<li><p><strong>shape</strong>, <strong>scale:</strong> Parámetros de la
+Distribución Gamma. Shape = a y Scale = s = 1/rate. Debe ser
+estrictamente positivo el parámetro Scale.</p></li>
+<li><p><strong>log</strong>, <strong>log.p:</strong> Parámetro booleano,
+si es TRUE, las probabilidades p son devueltas como log (p).</p></li>
+<li><p><strong>lower.tail:</strong> Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P[X &gt; x]</strong>.</p></li>
+</ul>
+<div id="ejercicio-de-aplicación-1" class="section level3">
+<h3>Ejercicio de aplicación</h3>
+<p><strong>En cierta ciudad el consumo diario de energía eléctrica, en
+millones de kilovatios por hora, puede considerarse como una variable
+aleatoria con distribución Gamma de parámetros α = 3 y β =
+0.5.</strong></p>
+<p>La planta de energía de esta ciudad tiene una capacidad, suficiente
+diaria de 10 millones de kW/hora, determinar la probabilidad de que este
+abastecimientos sea: <strong>Se consuman entre 3 y 8 millones de
+kW/hora.</strong></p>
+<div id="solución-2" class="section level4">
+<h4>Solución</h4>
+<p>Nos piden, la probabilidad: <strong>P(3 &lt;X &lt;8)</strong>,
+empleamos para tal propósito, la función de distribución con el área de
+cola hacia la izquierda y la alternativa para especificar el valor de
+escala:</p>
+<pre class="r"><code>pgamma(8, 3, rate = 0.5, lower.tail = T) - pgamma(3, 3, rate = 0.5, lower.tail = T)</code></pre>
+<pre><code>## [1] 0.5707435</code></pre>
+</div>
+</div>
+</div>
+<div id="distribución-exponencial" class="section level2">
+<h2>3. Distribución Exponencial</h2>
+<p>La distribución exponencial es una distribución de probabilidad
+continua que se utiliza para modelar el tiempo o espacio entre eventos
+en un proceso de Poisson.</p>
+<p>La distribución exponencial es la distribución de probabilidad del
+tiempo o espacio entre dos eventos en un proceso de Poisson, donde los
+eventos ocurren de manera continua e independiente a una tasa constante
+λ.</p>
+<p><strong>Para obtener valores que se basen en la distribución
+Exponencial, R, dispone de cuatro funciones:</strong></p>
+<pre class="r"><code>dexp(x, rate = 1, log = F)  #Devuelve resultados de la función de densidad.
+pexp(q, rate = 1, lower.tail = T, log.p = F)    #Devuelve resultados de la función de distribución acumulada.
+qexp(p, rate = 1, lower.tail = T, log.p = F)    #Devuelve resultados de los cuantiles de la distribución Exponencial.
+rexp(n, rate = 1)   #Devuelve un vector de valores de la distribución Exponencial aleatorios</code></pre>
+<p><strong>Los argumentos que podemos pasar a las funciones expuestas en
+la anterior tabla, son</strong></p>
+<ul>
+<li><p><strong>x</strong>, <strong>q</strong>: Vector de
+cuantiles.</p></li>
+<li><p><strong>p</strong>: Vector de probabilidades.</p></li>
+<li><p><strong>n</strong>: Números de observaciones.</p></li>
+<li><p><strong>rate</strong>: Vector de tasas. Hay que tener en cuenta
+que: <strong>rate = 1/β</strong></p></li>
+<li><p><strong>log</strong>, <strong>log.p</strong>: Parámetro booleano,
+si es TRUE, las probabilidades p son devueltas como
+<strong>log(p)</strong>.</p></li>
+<li><p><strong>lower.tail</strong>: Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P[X &gt; x]</strong></p></li>
+</ul>
+<div id="ejercicio-de-aplicación-2" class="section level3">
+<h3>Ejercicio de aplicación</h3>
+<p><strong>Supongamos que la cantidad de tiempo que uno pasa en un banco
+se distribuye exponencialmente con una media de 10 minutos,λ= 1/10 ¿Cuál
+es la probabilidad de que un cliente pase más de 15 minutos en el banco
+si aún está en el banco? después de 10 minutos?</strong></p>
+<div id="solución-3" class="section level4">
+<h4>Solución</h4>
+<p><span class="math display">\[P(X&gt;15|X&gt;10)=P(X&gt;5)=e^{-1/2} =
+0.606\]</span></p>
+<pre class="r"><code>pexp(5,rate=1/10,lower.tail = FALSE) # o 1- Pexp(5,rate=1/10,lower.tail = TRUE)</code></pre>
+<pre><code>## [1] 0.6065307</code></pre>
+</div>
+</div>
+</div>
+<div id="distribución-normal" class="section level2">
+<h2>4. Distribución Normal</h2>
+<p>Entre las variables aleatorias continuas, la más importante es la
+distribución normal o gaussiana. Esta variable fue introducida por Carl
+Friedrich en el siglo XIX para estudiar las medidas de error.</p>
+<p>Sea <strong>X∼N(μ,σ)</strong>, es decir, una variable aleatoria con
+distribución normal de media μ y desviación típica σ: </p>
+<p><strong>La función de densidad, también conocida como campana de
+Gauss, de x es:</strong> <span
+class="math display">\[f(x)=\frac{1}{\sqrt{2πσ^{2}}}
+e^{(1/2)(   \frac{x-μ}{σ})^{2}}\]</span></p>
+<p><strong>La función de distribución acumulada</strong> <span
+class="math display">\[F(x)=P(X≤x)\]</span></p>
+<p><strong>La esperanza y la varianza es</strong> <span
+class="math display">\[E(X)=μ ; Var(X)=σ^{2}\]</span></p>
+<p><strong>donde:</strong></p>
+<ul>
+<li><p><strong>μ</strong> es la media de la distribución (también la
+mediana y el modo).</p></li>
+<li><p><strong>σ</strong> es la desviación estándar</p></li>
+<li><p><strong>(σ&gt;0)</strong>.</p></li>
+<li><p><strong>σ^2</strong> varianza</p></li>
+</ul>
+<p><strong>Para obtener valores que se basen en la distribución Normal,
+R, dispone de cuatro funciones:</strong></p>
+<pre class="r"><code>dnorm(x, mean = 0, sd = 1, log = F)#    Devuelve resultados de la función de densidad.
+
+pnorm(q, mean = 0, sd = 1, lower.tail = T, log.p = F)   #Devuelve resultados de la función de distribución acumulada.
+
+qnorm(p, mean = 0, sd = 1, lower.tail = T, log.p = F)   #Devuelve resultados de los cuantiles de la Normal.
+
+rnorm(n, mean = 0, sd = 1)# Devuelve un vector de valores de la Normal aleatorios.</code></pre>
+<p><strong>Los argumentos que podemos pasar a las funciones expuestas en
+la anterior tabla, son:</strong></p>
+<ul>
+<li><p><strong>x</strong>, q: Vector de cuantiles.</p></li>
+<li><p><strong>p</strong>: Vector de probabilidades.</p></li>
+<li><p><strong>n</strong>: Números de observaciones.</p></li>
+<li><p><strong>mean</strong>: Vector de medias. Por defecto, su valor es
+<strong>0</strong>.</p></li>
+<li><p><strong>sd</strong>: Vector de desviación estándar. Por defecto,
+su valor es <strong>1</strong>.</p></li>
+<li><p><strong>log</strong>, *<strong>log.p</strong>: Parámetro
+booleano, si es TRUE, las probabilidades p son devueltas como
+<strong>log(p)</strong>.</p></li>
+<li><p><strong>lower.tail</strong>: Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P[X &gt; x]</strong>.</p></li>
+</ul>
+<div id="ejercicio-1-de-aplicación" class="section level3">
+<h3>Ejercicio 1 de aplicación</h3>
+<p><strong>En el siguiente ejemplo, observamos la gráfica de la función
+de distribución acumulada para una variable aleatoria X que tiene
+distribución normal con parámetros μ=2 y σ=1.1:</strong></p>
+<pre class="r"><code># Crear una sucesión de números entre -9 y 9, aumentando en 0.05.
+x &lt;- seq(-9, 9, by = 0.05)
+
+# Suponiendo que los parámetros son: mu=2 y sigma=1.1.
+y &lt;- pnorm(x, mean = 2, sd = 1.1)
+
+# Gráfica de la densidad normal
+plot(x,y)</code></pre>
+<p><img src="disProbabilidad_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="ejercicio-2-de-aplicación" class="section level3">
+<h3>Ejercicio 2 de aplicación</h3>
+<p><strong>Si X es una variable normal con media μ=50 y varianza
+σ^2=100, calcule la probabilidad de que X se encuentre entre -60 y
+60.</strong></p>
+<div id="solución-4" class="section level4">
+<h4>Solución</h4>
+<p><strong>La probabilidad de que X se encuentre entre -60 y 60 (ambos
+inclusive) es:</strong> <span class="math display">\[\begin{eqnarray*}
+    P(|X| \leq 60) &amp;=&amp; P(-60 \leq X  \leq 60)\; =\;  P(X\leq 60)
+\; - \; P(X\leq -60) \\
+     &amp;=&amp;  P\Big(Z \leq \frac{60-50}{10}\Big) \; - \;  P\Big(Z
+\leq \frac{-60-50}{10}\Big)\\
+     &amp;=&amp; P(Z \leq 1) - P(Z\leq -11) = 0.8413  - 0 \; =\; 0.8413
+\end{eqnarray*}\]</span></p>
+</div>
+<div id="solución-en-r" class="section level4">
+<h4>Solución en R</h4>
+<pre class="r"><code>pnorm(60,50,sqrt(100))-pnorm(-60,50,sqrt(100))</code></pre>
+<pre><code>## [1] 0.8413447</code></pre>
+</div>
+</div>
+</div>
+<div id="distribución-t-de-student" class="section level2">
+<h2>5. Distribución t de Student</h2>
+<p>la distribución <strong>T de Student</strong> es una distribución de
+probabilidad que surge del problema de estimar la media de una población
+normalmente distribuida cuando el tamaño de la muestra es pequeño y la
+desviación estándar poblacional es desconocida</p>
+<p>Existe la fórmula para calcular el valor de <strong>t</strong> en la
+distribuciones <strong>T Student..</strong> Se usa la siguiente fórmula
+para transformar distribuciones normales a <strong>t</strong>.</p>
+<p><span
+class="math display">\[t=\frac{\bar{x}-u}{\frac{s}{\sqrt{n}}}\]</span>
+<strong>donde:</strong></p>
+<p><span class="math display">\[\bar{x}\text{=media
+muestral}\]</span></p>
+<p><span class="math display">\[μ \text{=media poblacional}\]</span></p>
+<p><span class="math display">\[s\text{=desviación estándar de la
+muestra}\]</span></p>
+<p><span class="math display">\[n\text{=número de elementos de la
+muestra}\]</span></p>
+<p><strong>Para obtener valores que se basen en la distribución
+t-Student, R, dispone de cuatro funciones:</strong></p>
+<pre class="r"><code>dt(x, df, ncp, log = F)#    Devuelve resultados de la función de densidad.
+
+pt(q, df, ncp, lower.tail = T, log.p = F)#  Devuelve resultados de la función de distribución acumulada.
+
+qt(p, df, ncp, lower.tail = T, log.p = F)   #Devuelve resultados de los cuantiles de la t-Student.
+
+rt(n, df, ncp)# Devuelve un vector de valores de la t-Student aleatorios.</code></pre>
+<p><strong>Los argumentos que podemos pasar a las funciones expuestas en
+la anterior tabla, son:</strong></p>
+<ul>
+<li><p><strong>x</strong>, <strong>q</strong>: Vector de
+cuantiles.</p></li>
+<li><p><strong>p</strong>: Vector de probabilidades.</p></li>
+<li><p><strong>n</strong>: Números de observaciones.</p></li>
+<li><p><strong>df</strong>: Grados de libertad.</p></li>
+<li><p><strong>ncp</strong>: Parámetro que determina la centralidad de
+la gráfica t-Student. Si se omite, el estudio se realiza con la gráfica
+centralizada en 0.</p></li>
+<li><p><strong>log</strong>, <strong>log.p</strong>: Parámetro booleano,
+si es TRUE, las probabilidades p son devueltas como
+<strong>log(p)</strong>.</p></li>
+<li><p><strong>lower.tail</strong>: Parámetro booleano, si es TRUE (por
+defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
+contrario, <strong>P[X &gt; x]</strong></p></li>
+</ul>
+<div id="ejercicio-de-aplicación-3" class="section level3">
+<h3>Ejercicio de aplicación</h3>
+<p><strong>Un Gerente de mall desea estimar la cantidad media que gastan
+los clientes que visitan el centro comercial. Una muestra de 20 clientes
+revela las siguientes cantidades: 48.16, 42.22,46.82, 51.45, 23.78,
+41.86, 54.86, 37.92, 52.64, 48.59, 50.82, 46.94, 61.83, 61.69, 49.17,
+61.46, 51.35, 52.68, 58.84, 43.88</strong></p>
+<p>datos:</p>
+<pre class="r"><code>dato &lt;- c(48.16, 42.22, 46.82, 51.45, 23.78, 41.86, 54.86, 37.92, 52.64, 48.59, 50.82, 46.94, 61.83, 61.69, 49.17, 61.46, 51.35, 52.68, 58.84, 43.88)
+media &lt;- round(mean(dato),4)
+desviacion &lt;- round(sd(dato),)
+n &lt;- length(dato)
+confianza &lt;- 0.95</code></pre>
+<p><strong>Construir una tabla de datos</strong></p>
+<pre class="r"><code>tabla &lt;- data.frame(variables = c(&quot;n&quot;, &quot;Grados libertad&quot;, &quot;Media muestra&quot;, &quot;Desv.Std muestra&quot;, &quot;Media Pob.&quot;, &quot;Confianza&quot;), datos = c(n, (n-1), media, desviacion, NA, confianza)) 
+tabla</code></pre>
+<pre><code>##          variables  datos
+## 1                n 20.000
+## 2  Grados libertad 19.000
+## 3    Media muestra 49.348
+## 4 Desv.Std muestra  9.000
+## 5       Media Pob.     NA
+## 6        Confianza  0.950</code></pre>
+<p><strong>Valor de t real</strong></p>
+<pre class="r"><code>t &lt;- qt(p = (1 - confianza) / 2, df = n-1) # dos colas
+t &lt;- abs(t)
+t</code></pre>
+<pre><code>## [1] 2.093024</code></pre>
+</div>
+</div>
 </div>
 
 

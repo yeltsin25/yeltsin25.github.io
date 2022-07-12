@@ -1,7 +1,7 @@
 ---
 title: "Distribución de probabilidad"
 output:
-  pdf_document: default
+  #pdf_document: default
   word_document: default
 ---
 

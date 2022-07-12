@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Distribuciones continuas},
+  pdftitle={Distribución de probabilidad},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -102,12 +102,279 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
-\title{Distribuciones continuas}
+\title{Distribución de probabilidad}
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
 \maketitle
+
+\hypertarget{quuxe9-es-una-distribuciuxf3n-de-probabilidad}{%
+\subsection{¿Qué es una distribución de
+probabilidad?}\label{quuxe9-es-una-distribuciuxf3n-de-probabilidad}}
+
+\pagebreak
+
+resultados posibles de un experimento y la probabilidad de cada
+resultado. \pagebreak Supongamos que se quiere saber el numero de caras
+que se obtienen al lanzar cuatro veces una moneda al aire?
+
+Es obvio que, el hecho de que la modena caiga de costado se descarta.
+
+Los posibles resultados son: cero caras, una cara, dos caras, tres caras
+y cuatro caras.
+
+\hypertarget{variable-aleatoria.}{%
+\subsection{1. Variable aleatoria.}\label{variable-aleatoria.}}
+
+\pagebreak
+
+Cantidad que es resultado de un experimento y debido al azar, puede
+tomar valores diferentes.
+
+Variable aleatoria discreta:- Toma valores claramente separados,
+generalmente se produce por conteo.
+
+\hypertarget{media-de-una-distribuciuxf3n-de-probabilidades.}{%
+\subsection{2. Media de una Distribución de
+Probabilidades.}\label{media-de-una-distribuciuxf3n-de-probabilidades.}}
+
+\pagebreak
+
+promedio a largo plazo de la variable aleatoria, también es conocido
+como valor esperado. Esta media es un promedio ponderado, en el que los
+valores posibles se ponderan mediante sus probabilidades
+correspondientes de ocurrencia.
+
+\hypertarget{varianza.}{%
+\subsection{3. Varianza.}\label{varianza.}}
+
+\pagebreak
+
+Mide el grado de dispersión de la distribución de probabilidades.
+
+\hypertarget{distribuciuxf3n-binomial}{%
+\section{1. Distribución Binomial}\label{distribuciuxf3n-binomial}}
+
+Es aquella función que representa cuál es la probabilidad de obtener
+\textbf{x} éxitos en \textbf{n} pruebas de Bernoulli independientes,
+cuya probabilidad de éxito es de \textbf{p}. \pagebreak la probabilidad
+de que se obtengan \textbf{k} éxitos está dada por la función de
+probabilidad \textbf{f}
+
+\[f(k) \;=\; P(X=k)  \;=\; {n\choose k} p^k\, (1-p)^{n-k}, \qquad k=0,1,2, \ldots, n\]
+\textbf{\emph{Con Esperanza y varianza de}}
+\[E(X)= np, \qquad V(X)= np(1-p)\]
+
+\hypertarget{funciuxf3n-de-probabilidad-en-r.}{%
+\paragraph{Función de probabilidad en
+R.}\label{funciuxf3n-de-probabilidad-en-r.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dbinom }\CommentTok{\#Función de masa de probabilidad Binomial (Función de probabilidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (x, size, prob, log = FALSE) 
+## .Call(C_dbinom, x, size, prob, log)
+## <bytecode: 0x000001fef75865c0>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pbinom }\CommentTok{\#Distribución binomial (Función de distribución acumulada)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (q, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_pbinom, q, size, prob, lower.tail, log.p)
+## <bytecode: 0x000001fe80081c20>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qbinom }\CommentTok{\#    Función cuantil binomial}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (p, size, prob, lower.tail = TRUE, log.p = FALSE) 
+## .Call(C_qbinom, p, size, prob, lower.tail, log.p)
+## <bytecode: 0x000001fefa2f5080>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rbinom  }\CommentTok{\#Generación de números pseudoaleatorios binomiales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (n, size, prob) 
+## .Call(C_rbinom, n, size, prob)
+## <bytecode: 0x000001fefea4cc90>
+## <environment: namespace:stats>
+\end{verbatim}
+
+\hypertarget{ejercicio-de-ejemplo.}{%
+\subsection{Ejercicio de ejemplo.}\label{ejercicio-de-ejemplo.}}
+
+\textbf{\emph{la probabilidad de que el éxito ocurra menos de 3 veces si
+el número de ensayos es 10 y la probabilidad de éxito por ensayo es 0.3
+es}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{3}\NormalTok{, }\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{prob =} \FloatTok{0.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6496107
+\end{verbatim}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica}{%
+\section{2. Distribución
+hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica}}
+
+Recuérdese que si se selecciona una muestra aleatoria de \textbf{n}
+consumidores de una población de \textbf{N} consumidores, el número
+\textbf{x} de usuarios que favorecen un producto específico tendría una
+distribución binomial cuando el tamaño muestra n es pequeño respecto al
+número de \textbf{N} de consumidores en la población, el número
+\textbf{x} a favor del producto tiene una distribución de probabilidad
+hipergeométrica, \emph{cuya fórmula es:} \pagebreak La correspondiente
+distribución de X se conoce con el nombre de distribución
+hipergeométrica con parámetros \textbf{n}, \textbf{M} y \textbf{N}.
+\[ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad n\leq N \]
+- \textbf{n:} Número de elementos en el muestra. - \textbf{M:} Número de
+elementos que tienen una característica especifica, por ejemplo el
+número de personas a favor un producto particular - \textbf{N:} Número
+de elementos en la población. - \textbf{K:} La probabilidad de elegir de
+manera exacta k éxitos
+
+\hypertarget{r-distribuciuxf3n-hipergeomuxe9trica.}{%
+\subsubsection{R: Distribución
+Hipergeométrica.}\label{r-distribuciuxf3n-hipergeomuxe9trica.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dhyper}\NormalTok{(x, m, n, k, }\AttributeTok{log =}\NormalTok{ F) }\CommentTok{\#Devuelve resultados de la función de densidad.}
+\FunctionTok{phyper}\NormalTok{(q, m, n, k, }\AttributeTok{lower.tail =}\NormalTok{ T, }\AttributeTok{log.p =}\NormalTok{ F)}\CommentTok{\#Devuelve resultados de la función de distribución acumulada.}
+\FunctionTok{qhyper}\NormalTok{(p, m, n, k, }\AttributeTok{lower.tail =}\NormalTok{ T, }\AttributeTok{log.p =}\NormalTok{ F)}\CommentTok{\#Devuelve resultados de los cuantiles de la Hipergeométrica.}
+\FunctionTok{rhyper}\NormalTok{(nn, m, n, k)}\CommentTok{\#Devuelve un vector de valores de la Hipergeométrica aleatorios\#}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{donde:} \textbf{\emph{Los argumentos que podemos pasar a las
+funciones expuestas en la anterior tabla, son:}}
+
+\begin{itemize}
+\item
+  \textbf{x}, \textbf{q}: Vector de cuantiles. Corresponde al número de
+  particulares en la muestra.
+\item
+  \textbf{m:} Selección aleatoria particular
+\item
+  \textbf{n:} El número total de la población menos la selección
+  aleatoria particular. \textbf{n = N - m}
+\item
+  \textbf{n:} El número de la selección a evaluar.
+\item
+  \textbf{prob:} Probabilidad.
+\item
+  \textbf{nn:} Número de observaciones.
+\item
+  \textbf{log}, \textbf{log.p:} Parámetro booleano, si es \textbf{TRUE},
+  las probabilidades p son devueltas como \textbf{log (p)}.
+\item
+  \textbf{lower.tail}: Parámetro booleano, si es TRUE (por defecto), las
+  probabilidades son \textbf{P{[}X ≤ x{]}}, de lo contrario, \textbf{P
+  {[}X \textgreater{} x{]}}
+\end{itemize}
+
+\hypertarget{ejercicio-de-ejemplo}{%
+\subsection{Ejercicio de Ejemplo}\label{ejercicio-de-ejemplo}}
+
+**De un grupo de 20 ingenieros con doctorado, se eligen 10
+aleatoriamente con el fin de contratarlos.
+
+¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los 5
+mejores del grupo de 20?**
+
+\hypertarget{soluciuxf3n}{%
+\paragraph{\texorpdfstring{\textbf{Solución}}{Solución}}\label{soluciuxf3n}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{N = 20}. Número total de ingenieros.
+\item
+  \textbf{n = 10.}* Muestra aleatoria de la población total de
+  ingenieros \textbf{(20 ingenieros).}
+\item
+  \textbf{r = 5.} Conjunto de 5 ingenieros estén los 5 mejores.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dhyper}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20{-}10}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01625387
+\end{verbatim}
+
+\hypertarget{distribuciuxf3n-de-poisson.}{%
+\section{3.Distribución de Poisson.}\label{distribuciuxf3n-de-poisson.}}
+
+se usa para modelar el número de eventos que ocurren en un proceso de
+Poisson. Sea \textbf{X ∼ P(λ)X∼P(λ)}, esto es, una variable aleatoria
+con distribución de Poisson donde el número medio de eventos que ocurren
+en un determinado intervalo es \textbf{λ}.
+
+\textbf{\emph{En relación a esta distribución, R tiene 4 funciones:}}
+
+\begin{itemize}
+\item
+  \textbf{rpois:} genera valores aleatorios acorde a los parámetros
+  indicados.
+\item
+  \textbf{dpois:} calcula la probabilidad puntual para un valor
+  específico.
+\item
+  \textbf{ppois:} proporciona la probabilidad acumulada para un cuantil
+  específico.
+\item
+  \textbf{qpois:} proporciona el cuantil para una probabilidad
+  específica
+\end{itemize}
+
+\hypertarget{ejercicio-de-ejemplo-1}{%
+\subsection{Ejercicio de Ejemplo}\label{ejercicio-de-ejemplo-1}}
+
+\textbf{El número medio de enfermos recibidos cada 10 minutos en un
+centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
+que dicho número de enfermos sigue una distribución de Poisson.}
+\textbf{\emph{Calcular la probabilidad de que entre las 12 horas y las
+12 horas y 10 minutos haya: Exactamente 2 enfermos}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dpois}\NormalTok{(}\DecValTok{2}\NormalTok{, }\FloatTok{1.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2677842
+\end{verbatim}
 
 \hypertarget{distribuciuxf3n-continua}{%
 \section{Distribución continua}\label{distribuciuxf3n-continua}}
@@ -231,8 +498,8 @@ aplicación}\label{ejercicio-de-aplicaciuxf3n}}
 \textbf{Considere que una variable aleatoria X se distribuye beta con
 parámetros shape1=2 y shape2=5} Dibuje la densidad de la distribución.
 
-\hypertarget{soluciuxf3n}{%
-\paragraph{Solución}\label{soluciuxf3n}}
+\hypertarget{soluciuxf3n-1}{%
+\paragraph{Solución}\label{soluciuxf3n-1}}
 
 La función \textbf{dbeta} sirve para obtener la altura de la curva de
 una distribución \textbf{beta} y combinándola con la función curve se
@@ -244,7 +511,7 @@ puede dibujar la densidad solicitada.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{disContinua_files/figure-latex/unnamed-chunk-4-1.pdf}
+\includegraphics{disProbabilidad_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \hypertarget{distribuciuxf3n-gamma}{%
 \subsection{2. Distribución Gamma}\label{distribuciuxf3n-gamma}}
@@ -306,8 +573,8 @@ diaria de 10 millones de kW/hora, determinar la probabilidad de que este
 abastecimientos sea: \textbf{Se consuman entre 3 y 8 millones de
 kW/hora.}
 
-\hypertarget{soluciuxf3n-1}{%
-\paragraph{Solución}\label{soluciuxf3n-1}}
+\hypertarget{soluciuxf3n-2}{%
+\paragraph{Solución}\label{soluciuxf3n-2}}
 
 Nos piden, la probabilidad: \textbf{P(3 \textless X \textless8)},
 empleamos para tal propósito, la función de distribución con el área de
@@ -380,8 +647,8 @@ distribuye exponencialmente con una media de 10 minutos,λ= 1/10 ¿Cuál es
 la probabilidad de que un cliente pase más de 15 minutos en el banco si
 aún está en el banco? después de 10 minutos?}
 
-\hypertarget{soluciuxf3n-2}{%
-\paragraph{Solución}\label{soluciuxf3n-2}}
+\hypertarget{soluciuxf3n-3}{%
+\paragraph{Solución}\label{soluciuxf3n-3}}
 
 \[P(X>15|X>10)=P(X>5)=e^{-1/2} = 0.606\]
 
@@ -487,7 +754,7 @@ distribución normal con parámetros μ=2 y σ=1.1:}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{disContinua_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{disProbabilidad_files/figure-latex/unnamed-chunk-15-1.pdf}
 
 \hypertarget{ejercicio-2-de-aplicaciuxf3n}{%
 \subsubsection{Ejercicio 2 de
@@ -497,8 +764,8 @@ aplicación}\label{ejercicio-2-de-aplicaciuxf3n}}
 σ\^{}2=100, calcule la probabilidad de que X se encuentre entre -60 y
 60.}
 
-\hypertarget{soluciuxf3n-3}{%
-\paragraph{Solución}\label{soluciuxf3n-3}}
+\hypertarget{soluciuxf3n-4}{%
+\paragraph{Solución}\label{soluciuxf3n-4}}
 
 \textbf{La probabilidad de que X se encuentre entre -60 y 60 (ambos
 inclusive) es:} \begin{eqnarray*}

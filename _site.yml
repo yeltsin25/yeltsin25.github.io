@@ -9,8 +9,7 @@ navbar:
       href: disProbabilidad.html  
     - text: "Distribuciones Muestrales"
       href: muestra.html
-    - text: "Distribución Continua"
-      href: disContinua.html
+
 output:
   html_document:
     theme: flatly

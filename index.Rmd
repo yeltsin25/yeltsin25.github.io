@@ -13,8 +13,8 @@ output:
 \
 \
 
-# Inferencia Estadística
- 
+# <span style="color:#080808">Inferencia Estadística</span>
+
 <div style="text-align: justify">
 Una distribución de probabilidad
 indica toda la gama de valores que

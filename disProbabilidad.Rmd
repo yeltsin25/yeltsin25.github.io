@@ -1,11 +1,11 @@
 ---
-title: "Distribución de probabilidad"
+title: <span style="color:#7D3C98">Distribución de probabilidad</span>
 output:
   #pdf_document: default
   word_document: default
 ---
 
-## ¿Qué es una distribución de probabilidad? 
+## <span style="color:#2980B9">¿Qué es una distribución de probabilidad?</span> 
 
 <div style="text-align: justify">
 resultados posibles de un experimento y la probabilidad de cada
@@ -22,7 +22,7 @@ Los posibles resultados son: cero caras, una cara, dos
 caras, tres caras y cuatro caras.
 \
 
-##  Variable aleatoria. 
+##  <span style="color:#2980B9">Variable aleatoria</span>
 
 Cantidad que es
 resultado de un experimento y debido al azar, puede tomar
@@ -33,7 +33,7 @@ claramente separados, generalmente se produce por
 conteo.
 \
 
-##  Media de una Distribución de Probabilidades. 
+## <span style="color:#2980B9">Media de una Distribución de Probabilidades</span>
 
 promedio a largo plazo de la variable aleatoria,
 también es conocido como valor esperado. Esta media es
@@ -42,13 +42,13 @@ valores posibles se ponderan mediante sus probabilidades
 correspondientes de ocurrencia.
 \
 
-##  Varianza.
+## <span style="color:#2980B9">Varianza</span>
 
 Mide el grado de dispersión de la distribución de probabilidades.\
 
-# Distribución Discreta
+# <span style="color:#A93226">Distribución Discreta</span>
 
-# 1. Distribución Binomial
+## <span style="color:#2980B9">1. Distribución Binomial</span>
 Es aquella función que representa cuál es la probabilidad de obtener **x** éxitos en **n** pruebas de Bernoulli independientes, cuya probabilidad de éxito es de **p**.
 \pagebreak
 la probabilidad de que se obtengan **k** éxitos está dada por la función de probabilidad **f**
@@ -72,7 +72,7 @@ rbinom	#Generación de números pseudoaleatorios binomiales
 pbinom(3, size = 10, prob = 0.3)
 ```
 
-# 2. Distribución hipergeométrica
+## <span style="color:#2980B9">2. Distribución hipergeométrica</span>
 <div style="text-align: justify">
 Recuérdese que si se selecciona una muestra aleatoria de **n** consumidores de una población
 de **N** consumidores, el número **x** de usuarios que favorecen un producto específico tendría
@@ -121,7 +121,7 @@ rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleator
 
 \
 
-## Ejercicio de Ejemplo
+### Ejercicio de Ejemplo
 
 **De un grupo de 20 ingenieros con doctorado, se eligen 10 aleatoriamente con el fin de contratarlos.
 
@@ -139,13 +139,12 @@ dhyper(5,10,20-10,5)
 
 \
 
-# 3.Distribución de Poisson.
+# <span style="color:#2980B9">3.Distribución de Poisson.</span>
 <div style="text-align: justify">
 se usa para modelar el número de eventos que ocurren en un proceso de Poisson. Sea **X ∼ P(λ)X∼P(λ)**, esto es, una variable aleatoria con distribución de Poisson donde el número medio de eventos que ocurren en un determinado intervalo es **λ**.
 <div/> \
-<div style="text-align: center">
+
 ***En relación a esta distribución, R tiene 4 funciones:***
-<div/>
 
 
 - **rpois:** genera valores aleatorios acorde a los parámetros indicados.
@@ -158,7 +157,7 @@ se usa para modelar el número de eventos que ocurren en un proceso de Poisson. 
 
 \
 
-## Ejercicio de Ejemplo
+### Ejercicio de Ejemplo
 <div style="text-align: justify">
 **El número medio de enfermos recibidos cada 10 minutos en un centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo que dicho número de enfermos sigue una distribución de Poisson.**
  ***Calcular la probabilidad de que entre las 12 horas y las 12 horas y 10 minutos haya: Exactamente 2 enfermos***
@@ -167,7 +166,7 @@ se usa para modelar el número de eventos que ocurren en un proceso de Poisson. 
 dpois(2, 1.8)
 
 ```
-# Distribución continua
+# <span style="color:#C0392B">Distribución continua.</span>
 <div style="text-align: justify">
 Una distribución continua describe las probabilidades de los posibles valores de una variable aleatoria continua. Una variable aleatoria continua es una variable aleatoria con un conjunto de valores posibles (conocido como el rango) que es infinito y no se puede contar.
 <div/>
@@ -200,7 +199,7 @@ weibull  # Weibull
 ```
 **Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad f(x) de una normal se usa la función dnorm( )  y para obtener la función acumulada F(x) de una Beta se usa la función pbeta( )**\
 
-## 1. DISTRIBUCIÓN BETA
+## <span style="color:#2980B9">1. DISTRIBUCIÓN BETA</span>
 <div style="text-align: justify">
 La distribución beta es posible para una variable aleatoria continua que toma valores en el intervalo **[0,1]**, lo que la hace muy apropiada para modelar proporciones. En la inferencia bayesiana, por ejemplo, es muy utilizada como distribución a priori cuando las observaciones tienen una distribución binomial.
 
@@ -258,7 +257,7 @@ curve(dbeta(x, 2, 5), lwd=3, las=1, ylab='Densidad')
 
 \
 
-## 2. Distribución Gamma
+## <span style="color:#2980B9">2. Distribución Gamma</span>
 
 En este apartado, se explicarán las funciones existentes en R para obtener resultados que se basen en la **distribución Gamma**.
 
@@ -306,7 +305,7 @@ pgamma(8, 3, rate = 0.5, lower.tail = T) - pgamma(3, 3, rate = 0.5, lower.tail =
 ```
 
 
-## 3. Distribución Exponencial
+## <span style="color:#2980B9">3. Distribución Exponencial</span>
 <div style="text-align: justify">
 La distribución exponencial es una distribución de probabilidad continua que se utiliza para modelar el tiempo o espacio entre eventos en un proceso de Poisson.
 
@@ -350,7 +349,7 @@ pexp(5,rate=1/10,lower.tail = FALSE) # o 1- Pexp(5,rate=1/10,lower.tail = TRUE)
 
 \
 
-## 4. Distribución Normal
+## <span style="color:#2980B9">4. Distribución Normal</span>
 
 Entre las variables aleatorias continuas, la más importante es la distribución normal o gaussiana. Esta variable fue introducida por Carl Friedrich en el siglo XIX para estudiar las medidas de error.
 
@@ -442,23 +441,23 @@ plot(x,y)
 pnorm(60,50,sqrt(100))-pnorm(-60,50,sqrt(100))
 ```
 
-## 5. Distribución t de Student
+## <span style="color:#2980B9">5. Distribución t de Student</span>
 
 la distribución **T de Student** es una distribución de probabilidad que surge del problema de estimar la media de una población normalmente distribuida cuando el tamaño de la muestra es pequeño y la desviación estándar poblacional es desconocida
 
 
 Existe la fórmula para calcular el valor de **t** en la distribuciones **T Student..** Se usa la siguiente fórmula para transformar distribuciones normales a **t**.
 
-$$t=\frac{\bar{x}-u}{\frac{s}{\sqrt{n}}}$$
+$t=\frac{\bar{x}-u}{\frac{s}{\sqrt{n}}}$
 **donde:**
 
-$$\bar{x}\text{=media muestral}$$
+$\bar{x}\text{=media muestral}$
 
-$$μ \text{=media poblacional}$$
+$μ \text{=media poblacional}$
 
- $$s\text{=desviación estándar de la muestra}$$
+$s\text{=desviación estándar de la muestra}$
 
-$$n\text{=número de elementos de la muestra}$$
+$n\text{=número de elementos de la muestra}$
 
 **Para obtener valores que se basen en la distribución t-Student, R, dispone de cuatro funciones:**
 ```{r eval=FALSE}

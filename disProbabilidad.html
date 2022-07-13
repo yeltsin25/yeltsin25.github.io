@@ -267,14 +267,16 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Distribución de probabilidad</h1>
+<h1 class="title toc-ignore"><span style="color:#7D3C98">Distribución de
+probabilidad</span></h1>
 
 </div>
 
 
 <div id="qué-es-una-distribución-de-probabilidad"
 class="section level2">
-<h2>¿Qué es una distribución de probabilidad?</h2>
+<h2><span style="color:#2980B9">¿Qué es una distribución de
+probabilidad?</span></h2>
 <div style="text-align: justify">
 resultados posibles de un experimento y la probabilidad de cada
 resultado.
@@ -288,34 +290,34 @@ descarta.</p>
 caras y cuatro caras.<br />
 </p>
 </div>
-<div id="variable-aleatoria." class="section level2">
-<h2>Variable aleatoria.</h2>
+<div id="variable-aleatoria" class="section level2">
+<h2><span style="color:#2980B9">Variable aleatoria</span></h2>
 <p>Cantidad que es resultado de un experimento y debido al azar, puede
 tomar valores diferentes.</p>
 <p>Variable aleatoria discreta:- Toma valores claramente separados,
 generalmente se produce por conteo.<br />
 </p>
 </div>
-<div id="media-de-una-distribución-de-probabilidades."
+<div id="media-de-una-distribución-de-probabilidades"
 class="section level2">
-<h2>Media de una Distribución de Probabilidades.</h2>
+<h2><span style="color:#2980B9">Media de una Distribución de
+Probabilidades</span></h2>
 <p>promedio a largo plazo de la variable aleatoria, también es conocido
 como valor esperado. Esta media es un promedio ponderado, en el que los
 valores posibles se ponderan mediante sus probabilidades
 correspondientes de ocurrencia.<br />
 </p>
 </div>
-<div id="varianza." class="section level2">
-<h2>Varianza.</h2>
+<div id="varianza" class="section level2">
+<h2><span style="color:#2980B9">Varianza</span></h2>
 <p>Mide el grado de dispersión de la distribución de
 probabilidades.<br />
 </p>
 </div>
 <div id="distribución-discreta" class="section level1">
-<h1>Distribución Discreta</h1>
-</div>
-<div id="distribución-binomial" class="section level1">
-<h1>1. Distribución Binomial</h1>
+<h1><span style="color:#A93226">Distribución Discreta</span></h1>
+<div id="distribución-binomial" class="section level2">
+<h2><span style="color:#2980B9">1. Distribución Binomial</span></h2>
 <p>Es aquella función que representa cuál es la probabilidad de obtener
 <strong>x</strong> éxitos en <strong>n</strong> pruebas de Bernoulli
 independientes, cuya probabilidad de éxito es de <strong>p</strong>. la
@@ -348,6 +350,7 @@ np, \qquad V(X)= np(1-p)\]</span></p>
 ## &lt;bytecode: 0x0000028d195c8540&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 </div>
+</div>
 <div id="ejercicio-de-ejemplo." class="section level2">
 <h2>Ejercicio de ejemplo.</h2>
 <p><strong><em>la probabilidad de que el éxito ocurra menos de 3 veces
@@ -356,9 +359,9 @@ si el número de ensayos es 10 y la probabilidad de éxito por ensayo es
 <pre class="r"><code>pbinom(3, size = 10, prob = 0.3)</code></pre>
 <pre><code>## [1] 0.6496107</code></pre>
 </div>
-</div>
-<div id="distribución-hipergeométrica" class="section level1">
-<h1>2. Distribución hipergeométrica</h1>
+<div id="distribución-hipergeométrica" class="section level2">
+<h2><span style="color:#2980B9">2. Distribución
+hipergeométrica</span></h2>
 <div style="text-align: justify">
 Recuérdese que si se selecciona una muestra aleatoria de
 <strong>n</strong> consumidores de una población de <strong>N</strong>
@@ -413,8 +416,8 @@ contrario, <strong>P [X &gt; x]</strong></p></li>
 <p><br />
 </p>
 </div>
-<div id="ejercicio-de-ejemplo" class="section level2">
-<h2>Ejercicio de Ejemplo</h2>
+<div id="ejercicio-de-ejemplo" class="section level3">
+<h3>Ejercicio de Ejemplo</h3>
 <p>**De un grupo de 20 ingenieros con doctorado, se eligen 10
 aleatoriamente con el fin de contratarlos.</p>
 <p>¿Cuál es la probabilidad de que entre los 10 seleccionados, estén los
@@ -435,21 +438,19 @@ mejores.</li>
 </div>
 </div>
 </div>
+</div>
 <div id="distribución-de-poisson." class="section level1">
-<h1>3.Distribución de Poisson.</h1>
+<h1><span style="color:#2980B9">3.Distribución de Poisson.</span></h1>
 <div style="text-align: justify">
 se usa para modelar el número de eventos que ocurren en un proceso de
 Poisson. Sea <strong>X ∼ P(λ)X∼P(λ)</strong>, esto es, una variable
 aleatoria con distribución de Poisson donde el número medio de eventos
 que ocurren en un determinado intervalo es <strong>λ</strong>.
 <div/>
-<br />
-<div style="text-align: center">
-<strong><em>En relación a esta distribución, R tiene 4
-funciones:</em></strong>
-<div/>
-
-
+<p><br />
+</p>
+<p><strong><em>En relación a esta distribución, R tiene 4
+funciones:</em></strong></p>
 <ul>
 <li><p><strong>rpois:</strong> genera valores aleatorios acorde a los
 parámetros indicados.</p></li>
@@ -462,8 +463,8 @@ probabilidad específica</p></li>
 </ul>
 <p><br />
 </p>
-<div id="ejercicio-de-ejemplo-1" class="section level2">
-<h2>Ejercicio de Ejemplo</h2>
+<div id="ejercicio-de-ejemplo-1" class="section level3">
+<h3>Ejercicio de Ejemplo</h3>
 <div style="text-align: justify">
 <strong>El número medio de enfermos recibidos cada 10 minutos en un
 centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
@@ -476,8 +477,8 @@ horas y 10 minutos haya: Exactamente 2 enfermos</em></strong>
 <pre><code>## [1] 0.2677842</code></pre>
 </div>
 </div>
-<div id="distribución-continua" class="section level1">
-<h1>Distribución continua</h1>
+<div id="distribución-continua." class="section level1">
+<h1><span style="color:#C0392B">Distribución continua.</span></h1>
 <div style="text-align: justify">
 Una distribución continua describe las probabilidades de los posibles
 valores de una variable aleatoria continua. Una variable aleatoria
@@ -520,7 +521,7 @@ obtener la función acumulada F(x) de una Beta se usa la función pbeta(
 )</strong><br />
 </p>
 <div id="distribución-beta" class="section level2">
-<h2>1. DISTRIBUCIÓN BETA</h2>
+<h2><span style="color:#2980B9">1. DISTRIBUCIÓN BETA</span></h2>
 <div style="text-align: justify">
 <p>La distribución beta es posible para una variable aleatoria continua
 que toma valores en el intervalo <strong>[0,1]</strong>, lo que la hace
@@ -587,7 +588,7 @@ función curve se puede dibujar la densidad solicitada.</p>
 </div>
 </div>
 <div id="distribución-gamma" class="section level2">
-<h2>2. Distribución Gamma</h2>
+<h2><span style="color:#2980B9">2. Distribución Gamma</span></h2>
 <p>En este apartado, se explicarán las funciones existentes en R para
 obtener resultados que se basen en la <strong>distribución
 Gamma</strong>.</p>
@@ -639,7 +640,7 @@ escala:</p>
 </div>
 </div>
 <div id="distribución-exponencial" class="section level2">
-<h2>3. Distribución Exponencial</h2>
+<h2><span style="color:#2980B9">3. Distribución Exponencial</span></h2>
 <div style="text-align: justify">
 <p>La distribución exponencial es una distribución de probabilidad
 continua que se utiliza para modelar el tiempo o espacio entre eventos
@@ -692,7 +693,7 @@ aún está en el banco? después de 10 minutos?</strong>
 </div>
 </div>
 <div id="distribución-normal" class="section level2">
-<h2>4. Distribución Normal</h2>
+<h2><span style="color:#2980B9">4. Distribución Normal</span></h2>
 <p>Entre las variables aleatorias continuas, la más importante es la
 distribución normal o gaussiana. Esta variable fue introducida por Carl
 Friedrich en el siglo XIX para estudiar las medidas de error.</p>
@@ -781,7 +782,7 @@ inclusive) es:</strong> <span class="math display">\[\begin{eqnarray*}
 </div>
 </div>
 <div id="distribución-t-de-student" class="section level2">
-<h2>5. Distribución t de Student</h2>
+<h2><span style="color:#2980B9">5. Distribución t de Student</span></h2>
 <p>la distribución <strong>T de Student</strong> es una distribución de
 probabilidad que surge del problema de estimar la media de una población
 normalmente distribuida cuando el tamaño de la muestra es pequeño y la
@@ -790,15 +791,15 @@ desviación estándar poblacional es desconocida</p>
 distribuciones <strong>T Student..</strong> Se usa la siguiente fórmula
 para transformar distribuciones normales a <strong>t</strong>.</p>
 <p><span
-class="math display">\[t=\frac{\bar{x}-u}{\frac{s}{\sqrt{n}}}\]</span>
+class="math inline">\(t=\frac{\bar{x}-u}{\frac{s}{\sqrt{n}}}\)</span>
 <strong>donde:</strong></p>
-<p><span class="math display">\[\bar{x}\text{=media
-muestral}\]</span></p>
-<p><span class="math display">\[μ \text{=media poblacional}\]</span></p>
-<p><span class="math display">\[s\text{=desviación estándar de la
-muestra}\]</span></p>
-<p><span class="math display">\[n\text{=número de elementos de la
-muestra}\]</span></p>
+<p><span class="math inline">\(\bar{x}\text{=media
+muestral}\)</span></p>
+<p><span class="math inline">\(μ \text{=media poblacional}\)</span></p>
+<p><span class="math inline">\(s\text{=desviación estándar de la
+muestra}\)</span></p>
+<p><span class="math inline">\(n\text{=número de elementos de la
+muestra}\)</span></p>
 <p><strong>Para obtener valores que se basen en la distribución
 t-Student, R, dispone de cuatro funciones:</strong></p>
 <pre class="r"><code>dt(x, df, ncp, log = F)#    Devuelve resultados de la función de densidad.

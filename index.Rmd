@@ -9,9 +9,13 @@ output:
 
 
 
-\pagebreak
- # Inferencia Estadística
+\
+\
+\
 
+# Inferencia Estadística
+ 
+<div style="text-align: justify">
 Una distribución de probabilidad
 indica toda la gama de valores que
 pueden representarse como resultado de un experimento. Una
@@ -22,12 +26,14 @@ realice en el futuro, constituye una herramienta fundamental para
 la prospectiva, puesto que se puede diseñar un escenario
 de acontecimientos futuros considerando las tendencias actuales
 de diversos fenómenos naturales.
+<div/> \
 
-\pagebreak
+<div style="text-align: justify">
 Las decisiones estadísticas basadas en la estadística inferencial son fundamentales
 en la investigación que son evaluadas en
 términos de distribución de
 probabilidades.
+<div/>
 
 
 

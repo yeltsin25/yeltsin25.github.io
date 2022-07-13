@@ -6,10 +6,12 @@ output:
 ---
 
 ## ¿Qué es una distribución de probabilidad? 
-\pagebreak
+
+<div style="text-align: justify">
 resultados posibles de un experimento y la probabilidad de cada
 resultado.
-\pagebreak
+<div/>
+<div/>
 Supongamos que se quiere saber el numero de caras que se
 obtienen al lanzar cuatro veces una moneda al aire?
 
@@ -18,9 +20,10 @@ se descarta.
 
 Los posibles resultados son: cero caras, una cara, dos
 caras, tres caras y cuatro caras.
+\
 
-## 1. Variable aleatoria. 
-\pagebreak
+##  Variable aleatoria. 
+
 Cantidad que es
 resultado de un experimento y debido al azar, puede tomar
 valores diferentes.
@@ -28,19 +31,22 @@ valores diferentes.
 Variable aleatoria discreta:- Toma valores
 claramente separados, generalmente se produce por
 conteo.
+\
 
-## 2. Media de una Distribución de Probabilidades. 
-\pagebreak
+##  Media de una Distribución de Probabilidades. 
+
 promedio a largo plazo de la variable aleatoria,
 también es conocido como valor esperado. Esta media es
 un promedio ponderado, en el que los
 valores posibles se ponderan mediante sus probabilidades
 correspondientes de ocurrencia.
+\
 
-## 3. Varianza.
-\pagebreak
-Mide el grado de dispersión de la distribución de probabilidades.
+##  Varianza.
 
+Mide el grado de dispersión de la distribución de probabilidades.\
+
+# Distribución Discreta
 
 # 1. Distribución Binomial
 Es aquella función que representa cuál es la probabilidad de obtener **x** éxitos en **n** pruebas de Bernoulli independientes, cuya probabilidad de éxito es de **p**.
@@ -67,18 +73,24 @@ pbinom(3, size = 10, prob = 0.3)
 ```
 
 # 2. Distribución hipergeométrica
+<div style="text-align: justify">
 Recuérdese que si se selecciona una muestra aleatoria de **n** consumidores de una población
 de **N** consumidores, el número **x** de usuarios que favorecen un producto específico tendría
 una distribución binomial cuando el tamaño muestra n es pequeño respecto al número de **N**
 de consumidores en la población, el número **x** a favor del producto tiene una distribución
 de probabilidad hipergeométrica, *cuya fórmula es:*
-\pagebreak
+<div/>  \
 La correspondiente distribución de X se conoce con el nombre de distribución hipergeométrica con parámetros **n**, **M** y **N**.
 $$ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad n\leq N $$
+
 - __n:__ Número de elementos en el muestra.
+
 - __M:__ Número de elementos que tienen una característica especifica, por ejemplo el número de personas a favor un producto particular
+
 - __N:__ Número de elementos en la población.
+
 - __K:__ La probabilidad de elegir de manera exacta k éxitos
+\
 
 ### R: Distribución Hipergeométrica.
 ```{r eval=FALSE}
@@ -107,6 +119,8 @@ rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleator
 - **lower.tail**: Parámetro booleano, si es TRUE (por defecto), las probabilidades son **P[X ≤ x]**, de lo contrario,
 **P [X > x]**
 
+\
+
 ## Ejercicio de Ejemplo
 
 **De un grupo de 20 ingenieros con doctorado, se eligen 10 aleatoriamente con el fin de contratarlos.
@@ -123,10 +137,16 @@ rhyper(nn, m, n, k)#Devuelve un vector de valores de la Hipergeométrica aleator
 dhyper(5,10,20-10,5)
 ```
 
+\
+
 # 3.Distribución de Poisson.
+<div style="text-align: justify">
 se usa para modelar el número de eventos que ocurren en un proceso de Poisson. Sea **X ∼ P(λ)X∼P(λ)**, esto es, una variable aleatoria con distribución de Poisson donde el número medio de eventos que ocurren en un determinado intervalo es **λ**.
- 
+<div/> \
+<div style="text-align: center">
 ***En relación a esta distribución, R tiene 4 funciones:***
+<div/>
+
 
 - **rpois:** genera valores aleatorios acorde a los parámetros indicados.
 
@@ -136,20 +156,24 @@ se usa para modelar el número de eventos que ocurren en un proceso de Poisson. 
 
 - **qpois:** proporciona el cuantil para una probabilidad específica
 
+\
 
 ## Ejercicio de Ejemplo
+<div style="text-align: justify">
 **El número medio de enfermos recibidos cada 10 minutos en un centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo que dicho número de enfermos sigue una distribución de Poisson.**
  ***Calcular la probabilidad de que entre las 12 horas y las 12 horas y 10 minutos haya: Exactamente 2 enfermos***
+<div/>
 ```{r}
 dpois(2, 1.8)
 
 ```
 # Distribución continua
-
+<div style="text-align: justify">
 Una distribución continua describe las probabilidades de los posibles valores de una variable aleatoria continua. Una variable aleatoria continua es una variable aleatoria con un conjunto de valores posibles (conocido como el rango) que es infinito y no se puede contar.
-
+<div/>
+<div style="text-align: justify">
 Las probabilidades de las variables aleatorias continuas **(X)** se definen como el área por debajo de la curva de su PDF. Por lo tanto, solo los rangos de valores pueden tener una probabilidad diferente de cero. La probabilidad de que una variable aleatoria continua equivalga a algún valor siempre es cero.
-
+<div/>\
 ### Funciones disponibles para distribuciones continuas
 **Para cada distribución continua se tienen 4 funciones, a continuación el listado de las funciones y su utilidad**
 
@@ -174,13 +198,15 @@ t        # t-student
 unif     # Uniforme
 weibull  # Weibull
 ```
-**Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad f(x) de una normal se usa la función dnorm( )  y para obtener la función acumulada F(x) de una Beta se usa la función pbeta( )**
+**Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad f(x) de una normal se usa la función dnorm( )  y para obtener la función acumulada F(x) de una Beta se usa la función pbeta( )**\
 
 ## 1. DISTRIBUCIÓN BETA
-
+<div style="text-align: justify">
 La distribución beta es posible para una variable aleatoria continua que toma valores en el intervalo **[0,1]**, lo que la hace muy apropiada para modelar proporciones. En la inferencia bayesiana, por ejemplo, es muy utilizada como distribución a priori cuando las observaciones tienen una distribución binomial.
 
 Uno de los principales recursos de esta distribución es el ajuste a una gran variedad de distribuciones empíricas, pues adopta formas muy diversas dependiendo de cuáles sean los valores de los parámetros de forma **α** y **β**, mediante los que viene definida la distribución.
+<div/>
+\
 
 ### Caracteristicas
 **Campo de variación:**
@@ -215,10 +241,12 @@ rbeta(n, shape1, shape2, ncp = 0)#Devuelve un vector de valores de la distribuci
 
 - **lower.tail:** Parámetro booleano, si es TRUE (por defecto), las probabilidades son **P[X ≤ x]**, de lo contrario, **P[X > x].**
 
+\
 
 ### Ejercicio de aplicación
 
 **Considere que una variable aleatoria X se distribuye beta con parámetros shape1=2 y shape2=5** Dibuje la densidad de la distribución.
+\
 
 #### Solución
 
@@ -227,6 +255,8 @@ La función **dbeta** sirve para obtener la altura de la curva de una distribuci
 ```{r}
 curve(dbeta(x, 2, 5), lwd=3, las=1, ylab='Densidad')
 ```
+
+\
 
 ## 2. Distribución Gamma
 
@@ -277,11 +307,11 @@ pgamma(8, 3, rate = 0.5, lower.tail = T) - pgamma(3, 3, rate = 0.5, lower.tail =
 
 
 ## 3. Distribución Exponencial
-
+<div style="text-align: justify">
 La distribución exponencial es una distribución de probabilidad continua que se utiliza para modelar el tiempo o espacio entre eventos en un proceso de Poisson.
 
 La distribución exponencial es la distribución de probabilidad del tiempo o espacio entre dos eventos en un proceso de Poisson, donde los eventos ocurren de manera continua e independiente a una tasa constante λ.
-
+<div/>
 
 **Para obtener valores que se basen en la distribución Exponencial, R, dispone de cuatro funciones:**
 ```{r eval=FALSE}
@@ -308,15 +338,17 @@ rexp(n, rate = 1)	#Devuelve un vector de valores de la distribución Exponencial
 
 
 ### Ejercicio de aplicación
-
+<div style="text-align: justify">
 **Supongamos que la cantidad de tiempo que uno pasa en un banco se distribuye exponencialmente con una media de 10 minutos,λ= 1/10 ¿Cuál es la probabilidad de que un cliente pase más de 15 minutos en el banco si aún está en el banco? después de 10 minutos?**
-
+<div/>
 #### Solución
 
 $$P(X>15|X>10)=P(X>5)=e^{-1/2} = 0.606$$
 ```{r}
 pexp(5,rate=1/10,lower.tail = FALSE) # o 1- Pexp(5,rate=1/10,lower.tail = TRUE)
 ```
+
+\
 
 ## 4. Distribución Normal
 
@@ -375,7 +407,7 @@ rnorm(n, mean = 0, sd = 1)#	Devuelve un vector de valores de la Normal aleatorio
 
 - **lower.tail**: Parámetro booleano, si es TRUE (por defecto), las probabilidades son **P[X ≤ x]**, de lo contrario, **P[X > x]**.
 
-
+\
 
 ### Ejercicio 1 de aplicación
 
@@ -457,8 +489,10 @@ rt(n, df, ncp)#	Devuelve un vector de valores de la t-Student aleatorios.
 
 
 ### Ejercicio  de aplicación
+<div style="text-align: justify">
 
 **Un Gerente de mall desea estimar la cantidad media que gastan los clientes que visitan el centro comercial. Una muestra de 20 clientes revela las siguientes cantidades:  48.16, 42.22,46.82, 51.45, 23.78, 41.86, 54.86, 37.92, 52.64, 48.59, 50.82, 46.94, 61.83, 61.69, 49.17, 61.46, 51.35, 52.68, 58.84, 43.88**
+<div/>
 
 datos:
 

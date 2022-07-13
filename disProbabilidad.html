@@ -275,36 +275,44 @@ $(document).ready(function () {
 <div id="qué-es-una-distribución-de-probabilidad"
 class="section level2">
 <h2>¿Qué es una distribución de probabilidad?</h2>
-<div style="page-break-after: always;"></div>
-<p>resultados posibles de un experimento y la probabilidad de cada
-resultado. Supongamos que se quiere saber el numero de caras que se
-obtienen al lanzar cuatro veces una moneda al aire?</p>
+<div style="text-align: justify">
+resultados posibles de un experimento y la probabilidad de cada
+resultado.
+<div/>
+<div/>
+<p>Supongamos que se quiere saber el numero de caras que se obtienen al
+lanzar cuatro veces una moneda al aire?</p>
 <p>Es obvio que, el hecho de que la modena caiga de costado se
 descarta.</p>
 <p>Los posibles resultados son: cero caras, una cara, dos caras, tres
-caras y cuatro caras.</p>
+caras y cuatro caras.<br />
+</p>
 </div>
 <div id="variable-aleatoria." class="section level2">
-<h2>1. Variable aleatoria.</h2>
-<div style="page-break-after: always;"></div>
+<h2>Variable aleatoria.</h2>
 <p>Cantidad que es resultado de un experimento y debido al azar, puede
 tomar valores diferentes.</p>
 <p>Variable aleatoria discreta:- Toma valores claramente separados,
-generalmente se produce por conteo.</p>
+generalmente se produce por conteo.<br />
+</p>
 </div>
 <div id="media-de-una-distribución-de-probabilidades."
 class="section level2">
-<h2>2. Media de una Distribución de Probabilidades.</h2>
-<div style="page-break-after: always;"></div>
+<h2>Media de una Distribución de Probabilidades.</h2>
 <p>promedio a largo plazo de la variable aleatoria, también es conocido
 como valor esperado. Esta media es un promedio ponderado, en el que los
 valores posibles se ponderan mediante sus probabilidades
-correspondientes de ocurrencia.</p>
+correspondientes de ocurrencia.<br />
+</p>
 </div>
 <div id="varianza." class="section level2">
-<h2>3. Varianza.</h2>
-<div style="page-break-after: always;"></div>
-<p>Mide el grado de dispersión de la distribución de probabilidades.</p>
+<h2>Varianza.</h2>
+<p>Mide el grado de dispersión de la distribución de
+probabilidades.<br />
+</p>
+</div>
+<div id="distribución-discreta" class="section level1">
+<h1>Distribución Discreta</h1>
 </div>
 <div id="distribución-binomial" class="section level1">
 <h1>1. Distribución Binomial</h1>
@@ -322,22 +330,22 @@ np, \qquad V(X)= np(1-p)\]</span></p>
 <pre class="r"><code>dbinom #Función de masa de probabilidad Binomial (Función de probabilidad)</code></pre>
 <pre><code>## function (x, size, prob, log = FALSE) 
 ## .Call(C_dbinom, x, size, prob, log)
-## &lt;bytecode: 0x000001ab65ebfb18&gt;
+## &lt;bytecode: 0x0000028d122417e8&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <pre class="r"><code>pbinom #Distribución binomial (Función de distribución acumulada)</code></pre>
 <pre><code>## function (q, size, prob, lower.tail = TRUE, log.p = FALSE) 
 ## .Call(C_pbinom, q, size, prob, lower.tail, log.p)
-## &lt;bytecode: 0x000001ab6699cae8&gt;
+## &lt;bytecode: 0x0000028d1a660450&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <pre class="r"><code>qbinom #    Función cuantil binomial</code></pre>
 <pre><code>## function (p, size, prob, lower.tail = TRUE, log.p = FALSE) 
 ## .Call(C_qbinom, p, size, prob, lower.tail, log.p)
-## &lt;bytecode: 0x000001ab65f80328&gt;
+## &lt;bytecode: 0x0000028d19571848&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <pre class="r"><code>rbinom  #Generación de números pseudoaleatorios binomiales</code></pre>
 <pre><code>## function (n, size, prob) 
 ## .Call(C_rbinom, n, size, prob)
-## &lt;bytecode: 0x000001ab65fd20d0&gt;
+## &lt;bytecode: 0x0000028d195c8540&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 <div id="ejercicio-de-ejemplo." class="section level2">
@@ -351,24 +359,33 @@ si el número de ensayos es 10 y la probabilidad de éxito por ensayo es
 </div>
 <div id="distribución-hipergeométrica" class="section level1">
 <h1>2. Distribución hipergeométrica</h1>
-<p>Recuérdese que si se selecciona una muestra aleatoria de
+<div style="text-align: justify">
+Recuérdese que si se selecciona una muestra aleatoria de
 <strong>n</strong> consumidores de una población de <strong>N</strong>
 consumidores, el número <strong>x</strong> de usuarios que favorecen un
 producto específico tendría una distribución binomial cuando el tamaño
 muestra n es pequeño respecto al número de <strong>N</strong> de
 consumidores en la población, el número <strong>x</strong> a favor del
 producto tiene una distribución de probabilidad hipergeométrica,
-<em>cuya fórmula es:</em> La correspondiente distribución de X se conoce
-con el nombre de distribución hipergeométrica con parámetros
-<strong>n</strong>, <strong>M</strong> y <strong>N</strong>. <span
-class="math display">\[ f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose
-k}\,{N-M\choose n-k}}{{N\choose n}}, \qquad  \text{donde}\quad k=0,1,2,
-\ldots, n \quad \text{y}\quad n\leq N \]</span> - <strong>n:</strong>
-Número de elementos en el muestra. - <strong>M:</strong> Número de
-elementos que tienen una característica especifica, por ejemplo el
-número de personas a favor un producto particular - <strong>N:</strong>
-Número de elementos en la población. - <strong>K:</strong> La
-probabilidad de elegir de manera exacta k éxitos</p>
+<em>cuya fórmula es:</em>
+<div/>
+<p><br />
+La correspondiente distribución de X se conoce con el nombre de
+distribución hipergeométrica con parámetros <strong>n</strong>,
+<strong>M</strong> y <strong>N</strong>. <span class="math display">\[
+f(k) \;=\; P(X=k)\;= \;  \frac{{M\choose k}\,{N-M\choose n-k}}{{N\choose
+n}}, \qquad  \text{donde}\quad k=0,1,2, \ldots, n \quad \text{y}\quad
+n\leq N \]</span></p>
+<ul>
+<li><p><strong>n:</strong> Número de elementos en el muestra.</p></li>
+<li><p><strong>M:</strong> Número de elementos que tienen una
+característica especifica, por ejemplo el número de personas a favor un
+producto particular</p></li>
+<li><p><strong>N:</strong> Número de elementos en la población.</p></li>
+<li><p><strong>K:</strong> La probabilidad de elegir de manera exacta k
+éxitos<br />
+</p></li>
+</ul>
 <div id="r-distribución-hipergeométrica." class="section level3">
 <h3>R: Distribución Hipergeométrica.</h3>
 <pre class="r"><code>dhyper(x, m, n, k, log = F) #Devuelve resultados de la función de densidad.
@@ -393,6 +410,8 @@ si es <strong>TRUE</strong>, las probabilidades p son devueltas como
 defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
 contrario, <strong>P [X &gt; x]</strong></p></li>
 </ul>
+<p><br />
+</p>
 </div>
 <div id="ejercicio-de-ejemplo" class="section level2">
 <h2>Ejercicio de Ejemplo</h2>
@@ -411,17 +430,26 @@ mejores.</li>
 </ul>
 <pre class="r"><code>dhyper(5,10,20-10,5)</code></pre>
 <pre><code>## [1] 0.01625387</code></pre>
+<p><br />
+</p>
 </div>
 </div>
 </div>
 <div id="distribución-de-poisson." class="section level1">
 <h1>3.Distribución de Poisson.</h1>
-<p>se usa para modelar el número de eventos que ocurren en un proceso de
+<div style="text-align: justify">
+se usa para modelar el número de eventos que ocurren en un proceso de
 Poisson. Sea <strong>X ∼ P(λ)X∼P(λ)</strong>, esto es, una variable
 aleatoria con distribución de Poisson donde el número medio de eventos
-que ocurren en un determinado intervalo es <strong>λ</strong>.</p>
-<p><strong><em>En relación a esta distribución, R tiene 4
-funciones:</em></strong></p>
+que ocurren en un determinado intervalo es <strong>λ</strong>.
+<div/>
+<br />
+<div style="text-align: center">
+<strong><em>En relación a esta distribución, R tiene 4
+funciones:</em></strong>
+<div/>
+
+
 <ul>
 <li><p><strong>rpois:</strong> genera valores aleatorios acorde a los
 parámetros indicados.</p></li>
@@ -432,33 +460,41 @@ para un cuantil específico.</p></li>
 <li><p><strong>qpois:</strong> proporciona el cuantil para una
 probabilidad específica</p></li>
 </ul>
+<p><br />
+</p>
 <div id="ejercicio-de-ejemplo-1" class="section level2">
 <h2>Ejercicio de Ejemplo</h2>
-<p><strong>El número medio de enfermos recibidos cada 10 minutos en un
+<div style="text-align: justify">
+<strong>El número medio de enfermos recibidos cada 10 minutos en un
 centro sanitario entre las 10 horas y las 15 horas es 1.8. Suponiendo
 que dicho número de enfermos sigue una distribución de Poisson.</strong>
 <strong><em>Calcular la probabilidad de que entre las 12 horas y las 12
-horas y 10 minutos haya: Exactamente 2 enfermos</em></strong></p>
+horas y 10 minutos haya: Exactamente 2 enfermos</em></strong>
+<div/>
+
 <pre class="r"><code>dpois(2, 1.8)</code></pre>
 <pre><code>## [1] 0.2677842</code></pre>
 </div>
 </div>
 <div id="distribución-continua" class="section level1">
 <h1>Distribución continua</h1>
-<p>Una distribución continua describe las probabilidades de los posibles
+<div style="text-align: justify">
+Una distribución continua describe las probabilidades de los posibles
 valores de una variable aleatoria continua. Una variable aleatoria
 continua es una variable aleatoria con un conjunto de valores posibles
-(conocido como el rango) que es infinito y no se puede contar.</p>
-<p>Las probabilidades de las variables aleatorias continuas
+(conocido como el rango) que es infinito y no se puede contar.
+<div/>
+<div style="text-align: justify">
+Las probabilidades de las variables aleatorias continuas
 <strong>(X)</strong> se definen como el área por debajo de la curva de
 su PDF. Por lo tanto, solo los rangos de valores pueden tener una
 probabilidad diferente de cero. La probabilidad de que una variable
-aleatoria continua equivalga a algún valor siempre es cero.</p>
-<div id="funciones-disponibles-para-distribuciones-continuas"
-class="section level3">
-<h3>Funciones disponibles para distribuciones continuas</h3>
-<p><strong>Para cada distribución continua se tienen 4 funciones, a
-continuación el listado de las funciones y su utilidad</strong></p>
+aleatoria continua equivalga a algún valor siempre es cero.
+<div/>
+<p><br />
+### Funciones disponibles para distribuciones continuas <strong>Para
+cada distribución continua se tienen 4 funciones, a continuación el
+listado de las funciones y su utilidad</strong></p>
 <pre class="r"><code>dxxx(x, ...)  # Función de densidad de probabilidad, f(x)
 pxxx(q, ...)  # Función de distribución acumulada hasta q, F(x)
 qxxx(p, ...)  # Cuantil para el cual P(X &lt;= q) = p
@@ -481,20 +517,24 @@ weibull  # Weibull</code></pre>
 44 funciones, por ejemplo, para obtener la función de densidad de
 probabilidad f(x) de una normal se usa la función dnorm( ) y para
 obtener la función acumulada F(x) de una Beta se usa la función pbeta(
-)</strong></p>
-</div>
+)</strong><br />
+</p>
 <div id="distribución-beta" class="section level2">
 <h2>1. DISTRIBUCIÓN BETA</h2>
+<div style="text-align: justify">
 <p>La distribución beta es posible para una variable aleatoria continua
 que toma valores en el intervalo <strong>[0,1]</strong>, lo que la hace
 muy apropiada para modelar proporciones. En la inferencia bayesiana, por
 ejemplo, es muy utilizada como distribución a priori cuando las
 observaciones tienen una distribución binomial.</p>
-<p>Uno de los principales recursos de esta distribución es el ajuste a
-una gran variedad de distribuciones empíricas, pues adopta formas muy
+Uno de los principales recursos de esta distribución es el ajuste a una
+gran variedad de distribuciones empíricas, pues adopta formas muy
 diversas dependiendo de cuáles sean los valores de los parámetros de
 forma <strong>α</strong> y <strong>β</strong>, mediante los que viene
-definida la distribución.</p>
+definida la distribución.
+<div/>
+<p><br />
+</p>
 <div id="caracteristicas" class="section level3">
 <h3>Caracteristicas</h3>
 <p><strong>Campo de variación:</strong> <span
@@ -525,12 +565,15 @@ probabilidades p son devueltas como <strong>log (p).</strong></p></li>
 defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
 contrario, <strong>P[X &gt; x].</strong></p></li>
 </ul>
+<p><br />
+</p>
 </div>
 <div id="ejercicio-de-aplicación" class="section level3">
 <h3>Ejercicio de aplicación</h3>
 <p><strong>Considere que una variable aleatoria X se distribuye beta con
 parámetros shape1=2 y shape2=5</strong> Dibuje la densidad de la
-distribución.</p>
+distribución.<br />
+</p>
 <div id="solución-1" class="section level4">
 <h4>Solución</h4>
 <p>La función <strong>dbeta</strong> sirve para obtener la altura de la
@@ -538,6 +581,8 @@ curva de una distribución <strong>beta</strong> y combinándola con la
 función curve se puede dibujar la densidad solicitada.</p>
 <pre class="r"><code>curve(dbeta(x, 2, 5), lwd=3, las=1, ylab=&#39;Densidad&#39;)</code></pre>
 <p><img src="disProbabilidad_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><br />
+</p>
 </div>
 </div>
 </div>
@@ -595,13 +640,16 @@ escala:</p>
 </div>
 <div id="distribución-exponencial" class="section level2">
 <h2>3. Distribución Exponencial</h2>
+<div style="text-align: justify">
 <p>La distribución exponencial es una distribución de probabilidad
 continua que se utiliza para modelar el tiempo o espacio entre eventos
 en un proceso de Poisson.</p>
-<p>La distribución exponencial es la distribución de probabilidad del
+La distribución exponencial es la distribución de probabilidad del
 tiempo o espacio entre dos eventos en un proceso de Poisson, donde los
 eventos ocurren de manera continua e independiente a una tasa constante
-λ.</p>
+λ.
+<div/>
+
 <p><strong>Para obtener valores que se basen en la distribución
 Exponencial, R, dispone de cuatro funciones:</strong></p>
 <pre class="r"><code>dexp(x, rate = 1, log = F)  #Devuelve resultados de la función de densidad.
@@ -626,16 +674,20 @@ contrario, <strong>P[X &gt; x]</strong></p></li>
 </ul>
 <div id="ejercicio-de-aplicación-2" class="section level3">
 <h3>Ejercicio de aplicación</h3>
-<p><strong>Supongamos que la cantidad de tiempo que uno pasa en un banco
-se distribuye exponencialmente con una media de 10 minutos,λ= 1/10 ¿Cuál
-es la probabilidad de que un cliente pase más de 15 minutos en el banco
-si aún está en el banco? después de 10 minutos?</strong></p>
+<div style="text-align: justify">
+<strong>Supongamos que la cantidad de tiempo que uno pasa en un banco se
+distribuye exponencialmente con una media de 10 minutos,λ= 1/10 ¿Cuál es
+la probabilidad de que un cliente pase más de 15 minutos en el banco si
+aún está en el banco? después de 10 minutos?</strong>
+<div/>
 <div id="solución-3" class="section level4">
 <h4>Solución</h4>
 <p><span class="math display">\[P(X&gt;15|X&gt;10)=P(X&gt;5)=e^{-1/2} =
 0.606\]</span></p>
 <pre class="r"><code>pexp(5,rate=1/10,lower.tail = FALSE) # o 1- Pexp(5,rate=1/10,lower.tail = TRUE)</code></pre>
 <pre><code>## [1] 0.6065307</code></pre>
+<p><br />
+</p>
 </div>
 </div>
 </div>
@@ -688,6 +740,8 @@ booleano, si es TRUE, las probabilidades p son devueltas como
 defecto), las probabilidades son <strong>P[X ≤ x]</strong>, de lo
 contrario, <strong>P[X &gt; x]</strong>.</p></li>
 </ul>
+<p><br />
+</p>
 <div id="ejercicio-1-de-aplicación" class="section level3">
 <h3>Ejercicio 1 de aplicación</h3>
 <p><strong>En el siguiente ejemplo, observamos la gráfica de la función
@@ -774,11 +828,15 @@ contrario, <strong>P[X &gt; x]</strong></p></li>
 </ul>
 <div id="ejercicio-de-aplicación-3" class="section level3">
 <h3>Ejercicio de aplicación</h3>
-<p><strong>Un Gerente de mall desea estimar la cantidad media que gastan
+<div style="text-align: justify">
+
+<strong>Un Gerente de mall desea estimar la cantidad media que gastan
 los clientes que visitan el centro comercial. Una muestra de 20 clientes
 revela las siguientes cantidades: 48.16, 42.22,46.82, 51.45, 23.78,
 41.86, 54.86, 37.92, 52.64, 48.59, 50.82, 46.94, 61.83, 61.69, 49.17,
-61.46, 51.35, 52.68, 58.84, 43.88</strong></p>
+61.46, 51.35, 52.68, 58.84, 43.88</strong>
+<div/>
+
 <p>datos:</p>
 <pre class="r"><code>dato &lt;- c(48.16, 42.22, 46.82, 51.45, 23.78, 41.86, 54.86, 37.92, 52.64, 48.59, 50.82, 46.94, 61.83, 61.69, 49.17, 61.46, 51.35, 52.68, 58.84, 43.88)
 media &lt;- round(mean(dato),4)
